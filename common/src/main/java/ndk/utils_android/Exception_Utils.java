@@ -2,7 +2,7 @@ package ndk.utils_android;
 
 import java.util.Arrays;
 
-public class Exception_Utils {
+public class Exception_Utils extends ndk.utils_android16.Exception_Utils {
 
     public static String get_exception_details_api19(Exception e) {
 

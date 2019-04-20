@@ -1,7 +1,6 @@
 package ndk.utils_android;
 
 import android.content.Context;
-import android.content.Intent;
 import android.util.Log;
 
 import com.itextpdf.text.BaseColor;
@@ -21,18 +20,15 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.OutputStream;
-import java.util.ArrayList;
 
+import ndk.utils_android16.Date_Utils;
+import ndk.utils_android16.Toast_Utils;
 import ndk.utils_android16.models.sortable_tableView.pass_book.Pass_Book_Entry;
 import ndk.utils_android16.models.sortable_tableView.pass_book.Pass_Book_Entry_v2;
-import ndk.utils_android16.widgets.pass_book.Pass_Book_TableView;
-import ndk.utils_android16.widgets.pass_book.Pass_Book_TableView_Data_Adapter;
-import ndk.utils_android16.widgets.pass_book.Pass_Book_TableView_Data_Adapter_v2;
-import ndk.utils_android16.widgets.pass_book.Pass_Book_TableView_v2;
 
 import static ndk.utils_android16.Pdf_Utils.addEmptyLine;
 
-public class Pass_Book_Utils {
+public class Pass_Book_Utils extends ndk.utils_android16.Pass_Book_Utils {
 
     public static boolean create_Pass_Book_Pdf(String TAG, Context context, File pass_book_pdf, String application_name) {
 
@@ -129,5 +125,4 @@ public class Pass_Book_Utils {
         }
         return false;
     }
-
 }

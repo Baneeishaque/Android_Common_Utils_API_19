@@ -27,6 +27,10 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     implementation 'com.itextpdf:itext-pdfa:5.5.5'
+    implementation 'com.android.support:appcompat-v7:28.0.0'
+    implementation 'de.codecrafters.tableview:tableview:2.8.0'
+
+    implementation 'com.github.Baneeishaque:Android_Common_Utils_API_16:b627ac44f8'
 
     testImplementation 'junit:junit:4.12'
 

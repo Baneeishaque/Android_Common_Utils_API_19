@@ -1,11 +1,7 @@
 package ndk.utils_android;
 
 import android.content.Context;
-import android.content.DialogInterface;
-import android.content.Intent;
-import android.net.Uri;
 import android.os.Environment;
-import android.support.v7.app.AlertDialog;
 import android.util.Log;
 
 import com.itextpdf.text.Anchor;
@@ -31,7 +27,7 @@ import java.io.OutputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import static ndk.utils_android16.Pass_Book_Utils.email_Pass_Book;
+import ndk.utils_android16.Toast_Utils;
 
 public class Pdf_Utils {
 
