@@ -2,12 +2,13 @@ package ndk.utils_android19;
 
 import android.os.Bundle;
 import android.os.Environment;
-import android.support.v4.util.Pair;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ProgressBar;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.util.Pair;
 
 import java.io.File;
 import java.text.SimpleDateFormat;
