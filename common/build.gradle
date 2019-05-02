@@ -26,10 +26,11 @@ dependencies {
 
     implementation 'com.itextpdf:itext-pdfa:5.5.5'
     implementation 'androidx.appcompat:appcompat:1.0.2'
-    implementation 'de.codecrafters.tableview:tableview:2.8.0'
+    implementation 'de.codecrafters.tableview:tableview:2.8.1'
 
 //    implementation 'com.github.Baneeishaque:Android_Common_Utils_API_16:b627ac44f8'
-    implementation 'com.github.Baneeishaque:Android_Common_Utils_API_16:7a228d8d14'
+//    implementation 'com.github.Baneeishaque:Android_Common_Utils_API_16:7a228d8d14'
+    implementation 'com.github.Baneeishaque:Android_Common_Utils_API_16:376372e355'
 
     testImplementation 'junit:junit:4.12'
 
