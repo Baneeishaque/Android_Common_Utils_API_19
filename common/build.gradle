@@ -18,7 +18,6 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-
 }
 
 dependencies {
@@ -28,9 +27,8 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.0.2'
     implementation 'de.codecrafters.tableview:tableview:2.8.1'
 
-//    implementation 'com.github.Baneeishaque:Android_Common_Utils_API_16:b627ac44f8'
-//    implementation 'com.github.Baneeishaque:Android_Common_Utils_API_16:7a228d8d14'
-    implementation 'com.github.Baneeishaque:Android_Common_Utils_API_16:376372e355'
+    implementation 'com.github.Baneeishaque:Android_Common_Utils_API_16:25b8871979'
+    implementation 'com.github.Baneeishaque:Android_Common_Utils_API_14:3026871326'
 
     testImplementation 'junit:junit:4.12'
 

@@ -28,13 +28,13 @@ import ndk.utils_android16.models.sortable_tableView.pass_book.Pass_Book_Entry_v
 
 import static ndk.utils_android16.Pdf_Utils.addEmptyLine;
 
-public class Pass_Book_Utils extends ndk.utils_android16.Pass_Book_Utils {
+public class PassBookUtils extends ndk.utils_android16.Pass_Book_Utils {
 
-    public static boolean create_Pass_Book_Pdf(String TAG, Context context, File pass_book_pdf, String application_name) {
+    public static boolean createPassBookPdf(Context context, File passBookPdf, String applicationName) {
 
-        if (Folder_Utils.create_Documents_application_sub_folder(TAG, context, application_name)) {
+        if (FolderUtils.createDocumentsApplicationFolder(context, applicationName)) {
             try {
-                OutputStream output = new FileOutputStream(pass_book_pdf);
+                OutputStream output = new FileOutputStream(passBookPdf);
 
                 //Step 1
                 Document document = new Document(PageSize.A4);
@@ -47,7 +47,7 @@ public class Pass_Book_Utils extends ndk.utils_android16.Pass_Book_Utils {
 
                 //Step 4 Add content
 
-                Paragraph title = new Paragraph(application_name + ", Pass Book", FontFactory.getFont(FontFactory.TIMES_ROMAN, 16, Font.BOLD, BaseColor.BLACK));
+                Paragraph title = new Paragraph(applicationName + ", Pass Book", FontFactory.getFont(FontFactory.TIMES_ROMAN, 16, Font.BOLD, BaseColor.BLACK));
 
                 addEmptyLine(title, 1);
                 title.setAlignment(Element.ALIGN_CENTER);
@@ -119,7 +119,7 @@ public class Pass_Book_Utils extends ndk.utils_android16.Pass_Book_Utils {
 
             } catch (DocumentException | FileNotFoundException e) {
                 e.printStackTrace();
-                Log.i(TAG, "Pdf Creation failure " + e.getLocalizedMessage());
+                Log.i(applicationName, "Pdf Creation failure " + e.getLocalizedMessage());
                 Toast_Utils.longToast(context, "Pdf fail");
             }
         }

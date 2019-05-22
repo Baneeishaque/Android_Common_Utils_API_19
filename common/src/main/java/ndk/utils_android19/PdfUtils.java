@@ -29,7 +29,7 @@ import java.util.Date;
 
 import ndk.utils_android16.Toast_Utils;
 
-public class Pdf_Utils {
+public class PdfUtils {
 
     boolean createPdf(String TAG, Context context) {
 
