@@ -68,9 +68,13 @@ public class PassBookUtils extends ndk.utils_android16.Pass_Book_Utils {
                     c3.setHorizontalAlignment(Element.ALIGN_CENTER);
                     table.addCell(c3);
 
-                    PdfPCell c4 = new PdfPCell(new Phrase("Amount"));
+                    PdfPCell c4 = new PdfPCell(new Phrase("Credit"));
                     c4.setHorizontalAlignment(Element.ALIGN_CENTER);
                     table.addCell(c4);
+
+                    PdfPCell c5 = new PdfPCell(new Phrase("Debit"));
+                    c5.setHorizontalAlignment(Element.ALIGN_CENTER);
+                    table.addCell(c5);
 
                 } else {
 
@@ -95,6 +99,7 @@ public class PassBookUtils extends ndk.utils_android16.Pass_Book_Utils {
                             table.addCell(pass_book_entry_v2.getParticulars());
                             table.addCell(String.valueOf(pass_book_entry_v2.getSecond_account_name()));
                             table.addCell(String.valueOf(pass_book_entry_v2.getCredit_amount()));
+                            table.addCell(String.valueOf(pass_book_entry_v2.getDebit_amount()));
                             table.addCell(String.valueOf(pass_book_entry_v2.getBalance()));
                         }
                     }
