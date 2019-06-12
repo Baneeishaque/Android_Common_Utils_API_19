@@ -117,13 +117,13 @@ public abstract class PassBookBundle extends PermissionActivity {
             getRuntimePermission(new PermissionGrantedActions() {
                 @Override
                 public void configurePermissionGrantedActions() {
-                    writePassBookPdf(activityContext, passBookPdf, getIntent().getStringExtra("application_name"), currentTimeStamp);
+                    writePassBookPdf(activityContext, passBookPdf, getIntent().getStringExtra("application_name"), currentTimeStamp, configureCurrentAccountShortName(), configureCurrentAccountLongName());
                 }
             }, new PermissionAcceptedActions() {
                 @Override
                 public void configurePermissionAcceptedActions() {
                     Snackbar_Utils.display_Short_no_FAB_success_bottom_SnackBar(activityContext, "Storage Permission Granted, Thanks...");
-                    writePassBookPdf(activityContext, passBookPdf, getIntent().getStringExtra("application_name"), currentTimeStamp);
+                    writePassBookPdf(activityContext, passBookPdf, getIntent().getStringExtra("application_name"), currentTimeStamp, configureCurrentAccountShortName(), configureCurrentAccountLongName());
                 }
             }, new PermissionDeniedActions() {
                 @Override
@@ -137,13 +137,19 @@ public abstract class PassBookBundle extends PermissionActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    protected abstract String configureCurrentAccountLongName();
+
+    protected abstract String configureCurrentAccountShortName();
+
     @Override
     protected String configurePermission() {
         return Manifest.permission.WRITE_EXTERNAL_STORAGE;
     }
 
-    void writePassBookPdf(Context activityContext, File passBookPdf, String applicationName, String currentTimeStamp) {
-        if (createPassBookPdf(activityContext, passBookPdf, applicationName)) {
+    void writePassBookPdf(Context activityContext, File passBookPdf, String applicationName, String currentTimeStamp, String currentAccountShortName, String currentAccountLongName) {
+        String tempCurrentAccountShortName = currentAccountShortName.isEmpty() ? "" : "\n" + currentAccountShortName;
+        String tempCurrentAccountLongName = currentAccountLongName.isEmpty() ? "" : "\n" + currentAccountLongName;
+        if (createPassBookPdf(activityContext, passBookPdf, applicationName, tempCurrentAccountShortName + tempCurrentAccountLongName)) {
             prompt_For_Next_Action_After_Creation(this, "Pass Book Saved, What Next?", passBookPdf, getIntent().getStringExtra("application_name"), currentTimeStamp, "", "");
         }
     }

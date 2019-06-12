@@ -30,7 +30,7 @@ import static ndk.utils_android16.Pdf_Utils.addEmptyLine;
 
 public class PassBookUtils extends ndk.utils_android16.Pass_Book_Utils {
 
-    public static boolean createPassBookPdf(Context context, File passBookPdf, String applicationName) {
+    public static boolean createPassBookPdf(Context context, File passBookPdf, String applicationName, String additionalTitles) {
 
         if (FolderUtils.createDocumentsApplicationFolder(context, applicationName)) {
             try {
@@ -47,7 +47,7 @@ public class PassBookUtils extends ndk.utils_android16.Pass_Book_Utils {
 
                 //Step 4 Add content
 
-                Paragraph title = new Paragraph(applicationName + ", Pass Book", FontFactory.getFont(FontFactory.TIMES_ROMAN, 16, Font.BOLD, BaseColor.BLACK));
+                Paragraph title = new Paragraph(applicationName + ", Pass Book" + additionalTitles, FontFactory.getFont(FontFactory.TIMES_ROMAN, 16, Font.BOLD, BaseColor.BLACK));
 
                 addEmptyLine(title, 1);
                 title.setAlignment(Element.ALIGN_CENTER);
