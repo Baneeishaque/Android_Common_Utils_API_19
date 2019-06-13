@@ -54,6 +54,9 @@ public class PassBookUtils extends ndk.utils_android16.Pass_Book_Utils {
                 document.add(title);
 
                 PdfPTable table = new PdfPTable(5);
+                if (v2_flag) {
+                    table = new PdfPTable(6);
+                }
 
                 PdfPCell c1 = new PdfPCell(new Phrase("Date"));
                 c1.setHorizontalAlignment(Element.ALIGN_CENTER);
