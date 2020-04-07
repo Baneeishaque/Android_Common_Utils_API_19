@@ -1,12 +1,18 @@
-apply plugin: 'com.android.library'
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 android {
 
     compileSdkVersion 29
+    buildToolsVersion "29.0.3"
 
     defaultConfig {
 
-        minSdkVersion 19
+        applicationId "ndk.utils_android19.tests"
+
+        minSdkVersion 14
         targetSdkVersion 29
 
         versionCode 1
@@ -19,15 +25,33 @@ android {
 
         release {
 
+            shrinkResources true
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
 
+    viewBinding.enabled = true
+
     compileOptions {
 
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+
+        jvmTarget = "1.8"
+    }
+
+    dataBinding {
+
+        enabled = true
+    }
+
+    androidExtensions {
+
+        experimental = true
     }
 }
 
@@ -35,17 +59,13 @@ dependencies {
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+
     implementation 'androidx.appcompat:appcompat:1.1.0'
-
-    implementation 'com.itextpdf:itext-pdfa:5.5.5'
-    implementation 'de.codecrafters.tableview:tableview:2.8.1'
-
-    //TODO : Replace API 16 with that transitively including API 1 & API 14
-    api 'com.github.Baneeishaque:Android_Common_Utils_API_14:8de3adcf21'
-    api 'com.github.Baneeishaque:Android_Common_Utils_API_16:444a91e474'
+    implementation 'androidx.core:core-ktx:1.2.0'
 
     testImplementation 'junit:junit:4.13'
 
-    androidTestImplementation 'androidx.test:runner:1.2.0'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 }

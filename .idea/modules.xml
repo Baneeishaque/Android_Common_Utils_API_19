@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Android_Common_Utils_API_19.iml" filepath="$PROJECT_DIR$/Android_Common_Utils_API_19.iml" />
-      <module fileurl="file://$PROJECT_DIR$/common/common.iml" filepath="$PROJECT_DIR$/common/common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Android_Common_Utils_API_19.iml" filepath="$PROJECT_DIR$/Android_Common_Utils_API_19.iml" group="Android_Common_Utils_API_19" />
+      <module fileurl="file://$PROJECT_DIR$/common/common.iml" filepath="$PROJECT_DIR$/common/common.iml" group="Android_Common_Utils_API_19/common" />
+      <module fileurl="file://$PROJECT_DIR$/tests/tests.iml" filepath="$PROJECT_DIR$/tests/tests.iml" group="Android_Common_Utils_API_19/tests" />
     </modules>
   </component>
 </project>
