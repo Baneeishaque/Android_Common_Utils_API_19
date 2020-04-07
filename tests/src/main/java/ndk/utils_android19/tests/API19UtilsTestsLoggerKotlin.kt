@@ -1,0 +1,3 @@
+package ndk.utils_android19.tests
+
+class API19UtilsTestsLoggerKotlin : LogUtilsWrapperKotlin(ApplicationSpecification.applicationName)
