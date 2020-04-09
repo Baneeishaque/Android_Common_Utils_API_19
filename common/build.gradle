@@ -28,7 +28,7 @@ dependencies {
     implementation 'de.codecrafters.tableview:tableview:2.8.1'
 
     implementation 'com.github.Baneeishaque:Android_Common_Utils_API_14:8de3adcf21'
-    implementation 'com.github.Baneeishaque:Android_Common_Utils_API_16:444a91e474'
+    implementation 'com.github.Baneeishaque:Android_Common_Utils_API_16:b44014470d'
 
     testImplementation 'junit:junit:4.12'
 
