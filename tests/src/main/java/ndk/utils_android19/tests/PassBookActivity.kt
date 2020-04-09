@@ -40,7 +40,12 @@ class PassBookActivity : PassBookActivityBase() {
 
     override fun configureUserId(): String {
 
-        return "";
+        return ""
+    }
+
+    override fun configureCurrentAccountId(): String {
+
+        return "3331"
     }
 
     override fun configureWriteExternalStoragePermissionRequestCode(): Int {

@@ -31,4 +31,10 @@ public abstract class PassBookBundle extends PassBookActivityBase {
 
         return getIntent().getStringExtra("URL");
     }
+
+    @Override
+    protected String configureCurrentAccountId() {
+
+        return getIntent().getStringExtra("current_account_id");
+    }
 }
