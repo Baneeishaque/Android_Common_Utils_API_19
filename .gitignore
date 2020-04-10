@@ -42,14 +42,14 @@ captures/
 *.iml
 .idea/workspace.xml
 .idea/tasks.xml
-# .idea/gradle.xml
+.idea/gradle.xml
 .idea/assetWizardSettings.xml
 # .idea/dictionaries
 .idea/libraries
 .idea/caches
 # Android Studio 3 in .gitignore file.
 .idea/caches/build_file_checksums.ser
-# .idea/modules.xml
+.idea/modules.xml
 
 # Keystore files
 # Uncomment the following lines if you do not want to check your keystore files in.
@@ -140,7 +140,7 @@ obj/
 .idea/compiler.xml
 .idea/copyright/profiles_settings.xml
 # .idea/encodings.xml
-# .idea/misc.xml
+.idea/misc.xml
 .idea/scopes/scope_settings.xml
 # .idea/vcs.xml
 .idea/jsLibraryMappings.xml
@@ -382,3 +382,5 @@ gradle-app.setting
 **/build/
 
 # End of https://www.gitignore.io/api/java,linux,macos,gradle,android,windows,intellij,notepadpp,androidstudio,visualstudiocode
+
+.idea/codeStyles/
