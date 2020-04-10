@@ -19,7 +19,7 @@ android {
 
         release {
 
-            minifyEnabled true
+            minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
@@ -42,8 +42,8 @@ dependencies {
     implementation 'com.itextpdf:itext-pdfa:5.5.5'
     implementation 'de.codecrafters.tableview:tableview:2.8.1'
 
-    implementation 'com.github.Baneeishaque:Android_Common_Utils_API_14:8de3adcf21'
-    implementation 'com.github.Baneeishaque:Android_Common_Utils_API_16:b44014470d'
+    implementation 'com.github.Baneeishaque:Android_Common_Utils_API_14:c1762751c7'
+    implementation 'com.github.Baneeishaque:Android_Common_Utils_API_16:6b81a8a26d'
 
     testImplementation 'junit:junit:4.13'
 

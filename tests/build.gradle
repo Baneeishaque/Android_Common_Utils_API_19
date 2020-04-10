@@ -1,7 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
-apply plugin: 'kotlin-kapt'
+//apply plugin: 'kotlin-kapt'
 
 android {
 
@@ -25,13 +25,13 @@ android {
 
         release {
 
-            shrinkResources true
-            minifyEnabled true
+            shrinkResources false
+            minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
 
-    viewBinding.enabled = true
+//    viewBinding.enabled = true
 
     compileOptions {
 
@@ -44,15 +44,15 @@ android {
         jvmTarget = "1.8"
     }
 
-    dataBinding {
+//    dataBinding {
+//
+//        enabled = true
+//    }
 
-        enabled = true
-    }
-
-    androidExtensions {
-
-        experimental = true
-    }
+//    androidExtensions {
+//
+//        experimental = true
+//    }
 }
 
 dependencies {
@@ -65,6 +65,9 @@ dependencies {
 
     implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation 'androidx.core:core-ktx:1.2.0'
+
+    implementation 'com.github.Baneeishaque:Android_Common_Utils_API_14:c1762751c7'
+    implementation 'com.github.Baneeishaque:Android_Common_Utils_API_16:6b81a8a26d'
 
     testImplementation 'junit:junit:4.13'
 

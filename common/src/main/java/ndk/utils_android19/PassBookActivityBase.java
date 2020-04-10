@@ -15,14 +15,14 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
-import ndk.utils_android16.Snackbar_Utils;
-import ndk.utils_android16.models.sortable_tableView.pass_book.Pass_Book_Entry_v2;
-import ndk.utils_android16.network_task.Load_Pass_Book_Task;
-import ndk.utils_android16.widgets.pass_book.Pass_Book_TableView;
-import ndk.utils_android16.widgets.pass_book.Pass_Book_TableView_v2;
+import ndk.utils_android16.SnackbarUtils;
+import ndk.utils_android16.models.sortable_tableView.pass_book.PassBookEntryV2;
+import ndk.utils_android16.network_task.LoadPassBookTask;
+import ndk.utils_android16.widgets.pass_book.PassBookTableView;
+import ndk.utils_android16.widgets.pass_book.PassBookTableViewV2;
 
 import static ndk.utils_android16.Pdf_Utils.prompt_For_Next_Action_After_Creation;
-import static ndk.utils_android16.ProgressBar_Utils.showProgress;
+import static ndk.utils_android16.ProgressBarUtils.showProgress;
 import static ndk.utils_android19.PassBookUtils.createPassBookPdf;
 
 //TODO: Use new code structure
@@ -31,9 +31,9 @@ import static ndk.utils_android19.PassBookUtils.createPassBookPdf;
 public abstract class PassBookActivityBase extends WriteExternalStoragePermissionActivity {
 
     private ProgressBar progressBar;
-    private Pass_Book_TableView passBookTableView;
-    private Pass_Book_TableView_v2 passBookTableViewV2;
-    private Load_Pass_Book_Task loadPassBookTask = null;
+    private PassBookTableView passBookTableView;
+    private PassBookTableViewV2 passBookTableViewV2;
+    private LoadPassBookTask loadPassBookTask = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,7 +49,7 @@ public abstract class PassBookActivityBase extends WriteExternalStoragePermissio
 
             showProgress(true, this, progressBar, passBookTableView);
 
-            loadPassBookTask = new Load_Pass_Book_Task(configurePassBookUrl(), this, progressBar, passBookTableView, configureApplicationName(), passBookTableView, new Pair[]{new Pair<>("user_id", configureUserId())});
+            loadPassBookTask = new LoadPassBookTask(configurePassBookUrl(), this, progressBar, passBookTableView, configureApplicationName(), passBookTableView, new Pair[]{new Pair<>("user_id", configureUserId())});
 
         } else {
 
@@ -62,11 +62,11 @@ public abstract class PassBookActivityBase extends WriteExternalStoragePermissio
 
             if (isSortingAvailable()) {
 
-                loadPassBookTask = new Load_Pass_Book_Task(configurePassBookUrl(), this, progressBar, passBookTableViewV2, configureApplicationName(), passBookTableViewV2, configureCurrentAccountId(), true);
+                loadPassBookTask = new LoadPassBookTask(configurePassBookUrl(), this, progressBar, passBookTableViewV2, configureApplicationName(), passBookTableViewV2, configureCurrentAccountId(), true);
 
             } else {
 
-                loadPassBookTask = new Load_Pass_Book_Task(configurePassBookUrl(), this, progressBar, passBookTableViewV2, configureApplicationName(), passBookTableViewV2, configureCurrentAccountId());
+                loadPassBookTask = new LoadPassBookTask(configurePassBookUrl(), this, progressBar, passBookTableViewV2, configureApplicationName(), passBookTableViewV2, configureCurrentAccountId());
             }
 
             passBookTableViewV2.SetOnRowLongClickListener(clickedData -> {
@@ -104,7 +104,7 @@ public abstract class PassBookActivityBase extends WriteExternalStoragePermissio
         }
     }
 
-    protected abstract void configure_ROW_LONG_CLICK_ACTIONS(Pass_Book_Entry_v2 clickedData);
+    protected abstract void configure_ROW_LONG_CLICK_ACTIONS(PassBookEntryV2 clickedData);
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -130,10 +130,10 @@ public abstract class PassBookActivityBase extends WriteExternalStoragePermissio
 
             getRuntimePermission(() -> writePassBookPdf(activityContext, passBookPdf, configureApplicationName(), currentTimeStamp, configureCurrentAccountShortName(), configureCurrentAccountLongName()), () -> {
 
-                Snackbar_Utils.display_Short_no_FAB_success_bottom_SnackBar(activityContext, "Storage Permission Granted, Thanks...");
+                SnackbarUtils.displayShortNoFabSuccessBottomSnackBar(activityContext, "Storage Permission Granted, Thanks...");
                 writePassBookPdf(activityContext, passBookPdf, configureApplicationName(), currentTimeStamp, configureCurrentAccountShortName(), configureCurrentAccountLongName());
 
-            }, () -> Snackbar_Utils.display_Short_no_FAB_success_bottom_SnackBar(activityContext, "Please Allow Storage Permission..."));
+            }, () -> SnackbarUtils.displayShortNoFabSuccessBottomSnackBar(activityContext, "Please Allow Storage Permission..."));
             return true;
         }
 

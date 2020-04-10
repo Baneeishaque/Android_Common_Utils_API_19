@@ -1,7 +1,7 @@
 package ndk.utils_android19.tests;
 
+import ndk.utils_android14.LogUtils;
 import ndk.utils_android16.BuildConfig;
-import ndk.utils_android16.Log_Utils;
 
 public class LogUtilsWrapper {
 
@@ -13,6 +13,6 @@ public class LogUtilsWrapper {
 
     public static void debug(String message)
     {
-        Log_Utils.debug(tag, message, BuildConfig.DEBUG);
+        LogUtils.debug(tag, message, BuildConfig.DEBUG);
     }
 }

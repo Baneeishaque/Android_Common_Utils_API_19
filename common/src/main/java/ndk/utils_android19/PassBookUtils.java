@@ -22,9 +22,9 @@ import java.io.FileOutputStream;
 import java.io.OutputStream;
 
 import ndk.utils_android16.Date_Utils;
-import ndk.utils_android16.Toast_Utils;
-import ndk.utils_android16.models.sortable_tableView.pass_book.Pass_Book_Entry;
-import ndk.utils_android16.models.sortable_tableView.pass_book.Pass_Book_Entry_v2;
+import ndk.utils_android16.ToastUtils;
+import ndk.utils_android16.models.sortable_tableView.pass_book.PassBookEntry;
+import ndk.utils_android16.models.sortable_tableView.pass_book.PassBookEntryV2;
 
 import static ndk.utils_android16.Pdf_Utils.addEmptyLine;
 
@@ -97,22 +97,22 @@ public class PassBookUtils extends ndk.utils_android16.Pass_Book_Utils {
 
                 if (v2_flag) {
                     if (!current_pass_book_entries_v2.isEmpty()) {
-                        for (Pass_Book_Entry_v2 pass_book_entry_v2 : current_pass_book_entries_v2) {
-                            table.addCell(Date_Utils.normal_date_time_short_year_format.format(pass_book_entry_v2.getInsertion_date()));
+                        for (PassBookEntryV2 pass_book_entry_v2 : current_pass_book_entries_v2) {
+                            table.addCell(Date_Utils.normal_date_time_short_year_format.format(pass_book_entry_v2.getInsertionDate()));
                             table.addCell(pass_book_entry_v2.getParticulars());
-                            table.addCell(String.valueOf(pass_book_entry_v2.getSecond_account_name()));
-                            table.addCell(String.valueOf(pass_book_entry_v2.getCredit_amount()));
-                            table.addCell(String.valueOf(pass_book_entry_v2.getDebit_amount()));
+                            table.addCell(String.valueOf(pass_book_entry_v2.getSecondAccountName()));
+                            table.addCell(String.valueOf(pass_book_entry_v2.getCreditAmount()));
+                            table.addCell(String.valueOf(pass_book_entry_v2.getDebitAmount()));
                             table.addCell(String.valueOf(pass_book_entry_v2.getBalance()));
                         }
                     }
                 } else {
                     if (!current_pass_book_entries.isEmpty()) {
-                        for (Pass_Book_Entry pass_book_entry : current_pass_book_entries) {
-                            table.addCell(Date_Utils.normal_date_time_short_year_format.format(pass_book_entry.getInsertion_date()));
+                        for (PassBookEntry pass_book_entry : current_pass_book_entries) {
+                            table.addCell(Date_Utils.normal_date_time_short_year_format.format(pass_book_entry.getInsertionDate()));
                             table.addCell(pass_book_entry.getParticulars());
-                            table.addCell(String.valueOf(pass_book_entry.getDebit_amount()));
-                            table.addCell(String.valueOf(pass_book_entry.getCredit_amount()));
+                            table.addCell(String.valueOf(pass_book_entry.getDebitAmount()));
+                            table.addCell(String.valueOf(pass_book_entry.getCreditAmount()));
                             table.addCell(String.valueOf(pass_book_entry.getBalance()));
                         }
                     }
@@ -128,7 +128,7 @@ public class PassBookUtils extends ndk.utils_android16.Pass_Book_Utils {
             } catch (DocumentException | FileNotFoundException e) {
                 e.printStackTrace();
                 Log.i(applicationName, "Pdf Creation failure " + e.getLocalizedMessage());
-                Toast_Utils.longToast(context, "Pdf fail");
+                ToastUtils.longToast(context, "Pdf fail");
             }
         }
         return false;

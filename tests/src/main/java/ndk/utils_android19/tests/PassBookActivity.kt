@@ -1,6 +1,6 @@
 package ndk.utils_android19.tests
 
-import ndk.utils_android16.models.sortable_tableView.pass_book.Pass_Book_Entry_v2
+import ndk.utils_android16.models.sortable_tableView.pass_book.PassBookEntryV2
 import ndk.utils_android19.PassBookActivityBase
 
 class PassBookActivity : PassBookActivityBase() {
@@ -32,7 +32,7 @@ class PassBookActivity : PassBookActivityBase() {
         return ""
     }
 
-    override fun configure_ROW_LONG_CLICK_ACTIONS(clickedData: Pass_Book_Entry_v2?) {
+    override fun configure_ROW_LONG_CLICK_ACTIONS(clickedData: PassBookEntryV2?) {
 
         API19UtilsTestsLogger.debug(clickedData.toString())
 //        API19UtilsTestsLoggerKotlin.debug(clickedData.toString())
