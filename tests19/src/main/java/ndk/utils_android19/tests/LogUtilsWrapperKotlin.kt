@@ -7,7 +7,7 @@ open class LogUtilsWrapperKotlin(tag:String) {
 
     init {
 
-        Companion.tag=tag;
+        Companion.tag = tag
     }
 
     companion object{
