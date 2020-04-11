@@ -42,11 +42,13 @@ dependencies {
     implementation 'com.itextpdf:itext-pdfa:5.5.5'
     implementation 'de.codecrafters.tableview:tableview:2.8.1'
 
-    implementation 'com.github.Baneeishaque:Android_Common_Utils_API_14:c1762751c7'
-    implementation 'com.github.Baneeishaque:Android_Common_Utils_API_16:2fcb1535eb'
+//    implementation 'com.github.Baneeishaque:Android_Common_Utils_API_14:c1762751c7'
+//    api 'com.github.Baneeishaque:Android_Common_Utils_API_16:2fcb1535eb'
 
     testImplementation 'junit:junit:4.13'
 
     androidTestImplementation 'androidx.test:runner:1.2.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+
+    api project(path: ':Android_Common_Utils_API_16:common16')
 }
