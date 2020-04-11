@@ -43,7 +43,7 @@ dependencies {
     implementation 'de.codecrafters.tableview:tableview:2.8.1'
 
     implementation 'com.github.Baneeishaque:Android_Common_Utils_API_14:c1762751c7'
-    implementation 'com.github.Baneeishaque:Android_Common_Utils_API_16:6b81a8a26d'
+    implementation 'com.github.Baneeishaque:Android_Common_Utils_API_16:2fcb1535eb'
 
     testImplementation 'junit:junit:4.13'
 
