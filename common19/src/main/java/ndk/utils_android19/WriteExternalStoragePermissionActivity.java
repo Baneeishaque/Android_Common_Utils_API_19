@@ -2,7 +2,7 @@ package ndk.utils_android19;
 
 import android.Manifest;
 
-import ndk.utils_android14.PermissionActivity;
+import ndk.utils_android1.PermissionActivity;
 
 public abstract class WriteExternalStoragePermissionActivity extends PermissionActivity {
 
@@ -13,7 +13,7 @@ public abstract class WriteExternalStoragePermissionActivity extends PermissionA
     }
 
     @Override
-    protected int configure_PERMISSION_REQUEST_CODE() {
+    protected int configurePermissionRequestCode() {
 
         return configureWriteExternalStoragePermissionRequestCode();
     }
