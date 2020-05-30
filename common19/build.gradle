@@ -3,6 +3,7 @@ apply plugin: 'com.android.library'
 android {
 
     compileSdkVersion 29
+    buildToolsVersion '29.0.3'
 
     defaultConfig {
 
@@ -47,6 +48,6 @@ dependencies {
     androidTestImplementation 'androidx.test:runner:1.2.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
-    implementation project(path: ':Android_Common_Utils_API_14:common14')
-    implementation project(path: ':Android_Common_Utils_API_16:common16')
+    implementation project(path: ':Utils_14:common14')
+    implementation project(path: ':Utils_16:common16')
 }
