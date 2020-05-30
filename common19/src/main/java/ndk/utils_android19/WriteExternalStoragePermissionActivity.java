@@ -19,4 +19,10 @@ public abstract class WriteExternalStoragePermissionActivity extends PermissionA
     }
 
     protected abstract int configureWriteExternalStoragePermissionRequestCode();
+
+    @Override
+    protected String configurePermissionRequiredMessage() {
+
+        return "External Storage Write Permission is Required…";
+    }
 }

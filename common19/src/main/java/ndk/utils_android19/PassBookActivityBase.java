@@ -117,9 +117,7 @@ public abstract class PassBookActivityBase extends WriteExternalStoragePermissio
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
+        // Handle action bar item clicks here. The action bar will automatically handle clicks on the Home/Up button, so long as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
         final String currentTimeStamp = new SimpleDateFormat("dd-MM-yyyy_HH-mm-ss", Locale.US).format(new Date());
@@ -130,10 +128,10 @@ public abstract class PassBookActivityBase extends WriteExternalStoragePermissio
 
             getRuntimePermission(() -> writePassBookPdf(activityContext, passBookPdf, configureApplicationName(), currentTimeStamp, configureCurrentAccountShortName(), configureCurrentAccountLongName()), () -> {
 
-                SnackbarUtils.displayShortNoFabSuccessBottomSnackBar(activityContext, "Storage Permission Granted, Thanks...");
+                SnackbarUtils.displayShortNoFabSuccessBottomSnackBar(activityContext, "Storage Permission Granted, Thanks…");
                 writePassBookPdf(activityContext, passBookPdf, configureApplicationName(), currentTimeStamp, configureCurrentAccountShortName(), configureCurrentAccountLongName());
 
-            }, () -> SnackbarUtils.displayShortNoFabSuccessBottomSnackBar(activityContext, "Please Allow Storage Permission..."));
+            }, () -> SnackbarUtils.displayShortNoFabSuccessBottomSnackBar(activityContext, "Please Allow Storage Permission…"));
             return true;
         }
 
