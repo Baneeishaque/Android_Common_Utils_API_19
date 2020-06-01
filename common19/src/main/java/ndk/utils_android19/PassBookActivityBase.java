@@ -62,7 +62,7 @@ public abstract class PassBookActivityBase extends WriteExternalStoragePermissio
 
             if (isSortingAvailable()) {
 
-                loadPassBookTask = new LoadPassBookTask(configurePassBookUrl(), this, progressBar, passBookTableViewV2, configureApplicationName(), passBookTableViewV2, configureCurrentAccountId(), true);
+                loadPassBookTask = configureLoadPassBookTask();
 
             } else {
 
@@ -79,6 +79,11 @@ public abstract class PassBookActivityBase extends WriteExternalStoragePermissio
         }
 
         loadPassBookTask.execute();
+    }
+
+    public LoadPassBookTask configureLoadPassBookTask() {
+
+        return new LoadPassBookTask(configurePassBookUrl(), this, progressBar, passBookTableViewV2, configureApplicationName(), passBookTableViewV2, configureCurrentAccountId(), true);
     }
 
     protected abstract String configureCurrentAccountId();
