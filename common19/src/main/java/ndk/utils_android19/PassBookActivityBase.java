@@ -131,12 +131,12 @@ public abstract class PassBookActivityBase extends WriteExternalStoragePermissio
 
         if (id == R.id.menu_item_save) {
 
-            getRuntimePermission(() -> writePassBookPdf(activityContext, passBookPdf, configureApplicationName(), currentTimeStamp, configureCurrentAccountShortName(), configureCurrentAccountLongName()), () -> {
+            getRuntimePermission(() -> writePassBookPdf(currentActivityContext, passBookPdf, configureApplicationName(), currentTimeStamp, configureCurrentAccountShortName(), configureCurrentAccountLongName()), () -> {
 
-                SnackbarUtils.displayShortNoFabSuccessBottomSnackBar(activityContext, "Storage Permission Granted, Thanks…");
-                writePassBookPdf(activityContext, passBookPdf, configureApplicationName(), currentTimeStamp, configureCurrentAccountShortName(), configureCurrentAccountLongName());
+                SnackbarUtils.displayShortNoFabSuccessBottomSnackBar(currentActivityContext, "Storage Permission Granted, Thanks…");
+                writePassBookPdf(currentActivityContext, passBookPdf, configureApplicationName(), currentTimeStamp, configureCurrentAccountShortName(), configureCurrentAccountLongName());
 
-            }, () -> SnackbarUtils.displayShortNoFabSuccessBottomSnackBar(activityContext, "Please Allow Storage Permission…"));
+            }, () -> SnackbarUtils.displayShortNoFabSuccessBottomSnackBar(currentActivityContext, "Please Allow Storage Permission…"));
             return true;
         }
 
