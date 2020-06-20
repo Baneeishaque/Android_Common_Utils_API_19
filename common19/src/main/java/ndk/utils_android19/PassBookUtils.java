@@ -54,7 +54,7 @@ public class PassBookUtils extends ndk.utils_android16.Pass_Book_Utils {
                 document.add(title);
 
                 PdfPTable table = new PdfPTable(5);
-                if (v2_flag) {
+                if (v2Flag) {
                     table = new PdfPTable(6);
                 }
 
@@ -66,7 +66,7 @@ public class PassBookUtils extends ndk.utils_android16.Pass_Book_Utils {
                 c2.setHorizontalAlignment(Element.ALIGN_CENTER);
                 table.addCell(c2);
 
-                if (v2_flag) {
+                if (v2Flag) {
                     PdfPCell c3 = new PdfPCell(new Phrase("To A/C"));
                     c3.setHorizontalAlignment(Element.ALIGN_CENTER);
                     table.addCell(c3);
@@ -95,7 +95,7 @@ public class PassBookUtils extends ndk.utils_android16.Pass_Book_Utils {
                 c5.setHorizontalAlignment(Element.ALIGN_CENTER);
                 table.addCell(c5);
 
-                if (v2_flag) {
+                if (v2Flag) {
                     if (!current_pass_book_entries_v2.isEmpty()) {
                         for (PassBookEntryV2 pass_book_entry_v2 : current_pass_book_entries_v2) {
                             table.addCell(DateUtils.normalDateTimeShortYearFormat.format(pass_book_entry_v2.getInsertionDate()));

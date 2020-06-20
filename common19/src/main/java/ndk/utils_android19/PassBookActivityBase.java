@@ -40,18 +40,7 @@ public abstract class PassBookActivityBase extends WriteExternalStoragePermissio
 
         super.onCreate(savedInstanceState);
 
-        if (configurePassBookVersion2Flag() == null) {
-
-            setContentView(R.layout.pass_book);
-            passBookTableView = findViewById(R.id.tableView);
-
-            commonInitialization();
-
-            showProgress(true, this, progressBar, passBookTableView);
-
-            loadPassBookTask = new LoadPassBookTask(configurePassBookUrl(), this, progressBar, passBookTableView, configureApplicationName(), passBookTableView, new Pair[]{new Pair<>("user_id", configureUserId())});
-
-        } else {
+        if (isV2()) {
 
             setContentView(R.layout.pass_book_v2);
             passBookTableViewV2 = findViewById(R.id.tableView);
@@ -76,6 +65,16 @@ public abstract class PassBookActivityBase extends WriteExternalStoragePermissio
                 configure_ROW_LONG_CLICK_ACTIONS(clickedData);
             });
 
+        } else {
+
+            setContentView(R.layout.pass_book);
+            passBookTableView = findViewById(R.id.tableView);
+
+            commonInitialization();
+
+            showProgress(true, this, progressBar, passBookTableView);
+
+            loadPassBookTask = new LoadPassBookTask(configurePassBookUrl(), this, progressBar, passBookTableView, configureApplicationName(), passBookTableView, new Pair[]{new Pair<>("user_id", configureUserId())});
         }
 
         loadPassBookTask.execute();
@@ -86,17 +85,17 @@ public abstract class PassBookActivityBase extends WriteExternalStoragePermissio
         return new LoadPassBookTask(configurePassBookUrl(), this, progressBar, passBookTableViewV2, configureApplicationName(), passBookTableViewV2, configureCurrentAccountId(), true);
     }
 
-    protected abstract String configureCurrentAccountId();
+    public abstract String configureCurrentAccountId();
 
-    protected abstract String configurePassBookVersion2Flag();
+    public abstract boolean isV2();
 
-    protected abstract boolean isSortingAvailable();
+    public abstract boolean isSortingAvailable();
 
-    protected abstract String configureUserId();
+    public abstract String configureUserId();
 
-    protected abstract String configureApplicationName();
+    public abstract String configureApplicationName();
 
-    protected abstract String configurePassBookUrl();
+    public abstract String configurePassBookUrl();
 
     private void commonInitialization() {
 
@@ -109,12 +108,11 @@ public abstract class PassBookActivityBase extends WriteExternalStoragePermissio
         }
     }
 
-    protected abstract void configure_ROW_LONG_CLICK_ACTIONS(PassBookEntryV2 clickedData);
+    public abstract void configure_ROW_LONG_CLICK_ACTIONS(PassBookEntryV2 clickedData);
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
 
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.pass_book, menu);
         return true;
     }
@@ -122,7 +120,6 @@ public abstract class PassBookActivityBase extends WriteExternalStoragePermissio
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
-        // Handle action bar item clicks here. The action bar will automatically handle clicks on the Home/Up button, so long as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
         final String currentTimeStamp = new SimpleDateFormat("dd-MM-yyyy_HH-mm-ss", Locale.US).format(new Date());
@@ -143,9 +140,9 @@ public abstract class PassBookActivityBase extends WriteExternalStoragePermissio
         return super.onOptionsItemSelected(item);
     }
 
-    protected abstract String configureCurrentAccountLongName();
+    public abstract String configureCurrentAccountLongName();
 
-    protected abstract String configureCurrentAccountShortName();
+    public abstract String configureCurrentAccountShortName();
 
     void writePassBookPdf(Context activityContext, File passBookPdf, String applicationName, String currentTimeStamp, String currentAccountShortName, String currentAccountLongName) {
 
