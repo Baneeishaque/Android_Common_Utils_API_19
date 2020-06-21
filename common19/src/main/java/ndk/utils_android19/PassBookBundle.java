@@ -1,39 +1,41 @@
 package ndk.utils_android19;
 
+import java.util.Objects;
+
 public abstract class PassBookBundle extends PassBookActivityBase {
 
     @Override
-    protected String configurePassBookVersion2Flag() {
+    public boolean isV2() {
 
-        return getIntent().getStringExtra("V2_FLAG");
+        return Objects.equals(getIntent().getStringExtra("V2_FLAG"), String.valueOf(true));
     }
 
     @Override
-    protected boolean isSortingAvailable() {
+    public boolean isSortingAvailable() {
 
-        return getIntent().getStringExtra("SORT_FLAG") == null;
+        return Objects.equals(getIntent().getStringExtra("SORT_FLAG"), String.valueOf(true));
     }
 
     @Override
-    protected String configureUserId() {
+    public String configureUserId() {
 
         return getIntent().getStringExtra("user_id");
     }
 
     @Override
-    protected String configureApplicationName() {
+    public String configureApplicationName() {
 
         return getIntent().getStringExtra("application_name");
     }
 
     @Override
-    protected String configurePassBookUrl() {
+    public String configurePassBookUrl() {
 
         return getIntent().getStringExtra("URL");
     }
 
     @Override
-    protected String configureCurrentAccountId() {
+    public String configureCurrentAccountId() {
 
         return getIntent().getStringExtra("current_account_id");
     }
