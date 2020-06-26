@@ -13,6 +13,6 @@ public class LogUtilsWrapper {
 
     public static void debug(String message)
     {
-        LogUtils.debug(tag, message, BuildConfig.DEBUG);
+        LogUtils.debug(tag, message);
     }
 }

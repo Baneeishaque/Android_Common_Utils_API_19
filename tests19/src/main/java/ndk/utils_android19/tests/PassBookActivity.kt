@@ -5,7 +5,7 @@ import ndk.utils_android19.PassBookActivityBase
 
 class PassBookActivity : PassBookActivityBase() {
 
-    private val writeExternalStoragePermissionRequest: Int=0
+    private val writeExternalStoragePermissionRequest: Int = 0
 
     override fun configureApplicationName(): String {
 
@@ -43,6 +43,11 @@ class PassBookActivity : PassBookActivityBase() {
         return ""
     }
 
+    override fun isV2(): Boolean {
+
+        return true
+    }
+
     override fun configureCurrentAccountId(): String {
 
         return "3331"
@@ -51,10 +56,5 @@ class PassBookActivity : PassBookActivityBase() {
     override fun configureWriteExternalStoragePermissionRequestCode(): Int {
 
         return writeExternalStoragePermissionRequest
-    }
-
-    override fun configurePassBookVersion2Flag(): String {
-
-        return true.toString()
     }
 }
