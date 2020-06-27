@@ -1,1 +1,5 @@
-<manifest package="ndk.utils_android19" />
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="ndk.utils_android19">
+
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+</manifest>
