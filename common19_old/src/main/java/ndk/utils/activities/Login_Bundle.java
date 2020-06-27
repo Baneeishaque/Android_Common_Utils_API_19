@@ -27,9 +27,9 @@ import ndk.utils.R;
 import ndk.utils.SharedPreference_Utils;
 import ndk.utils.Toast_Utils;
 import ndk.utils.Validation_Utils;
+import ndk.utils.network_task.HttpApiSelectTask;
+import ndk.utils.network_task.HttpApiSelectTaskWrapper;
 import ndk.utils.network_task.REST_GET_Task;
-import ndk.utils.network_task.REST_Select_Task;
-import ndk.utils.network_task.REST_Select_Task_Wrapper;
 
 public class Login_Bundle extends AppCompatActivity {
 
@@ -98,7 +98,7 @@ public class Login_Bundle extends AppCompatActivity {
                         InputMethodManager.HIDE_NOT_ALWAYS);
             }
 
-            REST_Select_Task.Async_Response_JSON_object async_response_json_object = new REST_Select_Task.Async_Response_JSON_object() {
+            HttpApiSelectTask.Async_Response_JSON_object AsyncResponseJSONObject = new HttpApiSelectTask.Async_Response_JSON_object() {
 
                 @Override
                 public void processFinish(JSONObject json_object) {
@@ -133,7 +133,7 @@ public class Login_Bundle extends AppCompatActivity {
             Log.d(getIntent().getStringExtra("APPLICATION_NAME"), "Username : " + username.getText().toString());
             Log.d(getIntent().getStringExtra("APPLICATION_NAME"), "Password : " + password.getText().toString());
 
-            REST_Select_Task_Wrapper.execute(REST_GET_Task.get_Get_URL(getIntent().getStringExtra("SELECT_USER_URL"), new Pair[]{new Pair<>("username", username.getText().toString()), new Pair<>("password", password.getText().toString())}), activity_context, mProgressView, mLoginFormView, getIntent().getStringExtra("APPLICATION_NAME"), new Pair[]{}, async_response_json_object);
+            HttpApiSelectTaskWrapper.execute(REST_GET_Task.get_Get_URL(getIntent().getStringExtra("SELECT_USER_URL"), new Pair[]{new Pair<>("username", username.getText().toString()), new Pair<>("password", password.getText().toString())}), activity_context, mProgressView, mLoginFormView, getIntent().getStringExtra("APPLICATION_NAME"), new Pair[]{}, AsyncResponseJSONObject);
         }
     }
 }

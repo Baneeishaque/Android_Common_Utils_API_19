@@ -18,7 +18,7 @@ import ndk.utils.Network_Utils;
 import static ndk.utils.Network_Utils.perform_http_client_network_task;
 import static ndk.utils.ProgressBar_Utils.showProgress;
 
-public class REST_Select_Task extends AsyncTask<Void, Void, String[]> {
+public class HttpApiSelectTask extends AsyncTask<Void, Void, String[]> {
 
     private String URL, TAG;
     private Context context;
@@ -36,7 +36,7 @@ public class REST_Select_Task extends AsyncTask<Void, Void, String[]> {
     private Async_Response async_response = null;
     private Async_Response_JSON_object async_response_json_object = null;
 
-    public REST_Select_Task(String URL, Context context, View progressBar, View form, String TAG, Pair[] name_value_pair, Async_Response_JSON_array async_response_json_array
+    public HttpApiSelectTask(String URL, Context context, View progressBar, View form, String TAG, Pair[] name_value_pair, Async_Response_JSON_array async_response_json_array
     ) {
 
         this.URL = URL;
@@ -48,7 +48,7 @@ public class REST_Select_Task extends AsyncTask<Void, Void, String[]> {
         this.async_response_json_array = async_response_json_array;
     }
 
-    REST_Select_Task(String URL, Context context, View progressBar, View form, String TAG, Pair[] name_value_pair, Async_Response async_response) {
+    HttpApiSelectTask(String URL, Context context, View progressBar, View form, String TAG, Pair[] name_value_pair, Async_Response async_response) {
 
         this.URL = URL;
         this.context = context;
@@ -60,7 +60,7 @@ public class REST_Select_Task extends AsyncTask<Void, Void, String[]> {
         response_flag = 1;
     }
 
-    REST_Select_Task(String URL, Context context, View progressBar, View form, String TAG, Pair[] name_value_pair, Async_Response_JSON_object async_response_json_object) {
+    HttpApiSelectTask(String URL, Context context, View progressBar, View form, String TAG, Pair[] name_value_pair, Async_Response_JSON_object async_response_json_object) {
 
         this.URL = URL;
         this.context = context;
@@ -72,7 +72,7 @@ public class REST_Select_Task extends AsyncTask<Void, Void, String[]> {
         response_flag = 2;
     }
 
-    public REST_Select_Task(String URL, Context context, String TAG, Pair[] name_value_pair, Async_Response async_response) {
+    public HttpApiSelectTask(String URL, Context context, String TAG, Pair[] name_value_pair, Async_Response async_response) {
 
         this.URL = URL;
         this.context = context;
@@ -83,7 +83,7 @@ public class REST_Select_Task extends AsyncTask<Void, Void, String[]> {
         response_flag = 1;
     }
 
-    public REST_Select_Task(String URL, Context context, String TAG, Pair[] name_value_pair, Async_Response_JSON_array async_response_json_array) {
+    public HttpApiSelectTask(String URL, Context context, String TAG, Pair[] name_value_pair, Async_Response_JSON_array async_response_json_array) {
 
         this.URL = URL;
         this.context = context;
@@ -94,7 +94,7 @@ public class REST_Select_Task extends AsyncTask<Void, Void, String[]> {
         splash_flag = 1;
     }
 
-    public REST_Select_Task(String URL, Context context, View progressBar, View form, String TAG, Pair[] name_value_pair, Async_Response_JSON_array async_response_json_array, boolean error_flag) {
+    public HttpApiSelectTask(String URL, Context context, View progressBar, View form, String TAG, Pair[] name_value_pair, Async_Response_JSON_array async_response_json_array, boolean error_flag) {
 
         this.URL = URL;
         this.context = context;
@@ -106,7 +106,7 @@ public class REST_Select_Task extends AsyncTask<Void, Void, String[]> {
         this.error_flag = error_flag;
     }
 
-    public REST_Select_Task(String URL, Context context, String TAG, Pair[] name_value_pair, Async_Response_JSON_array async_response_json_array, boolean error_flag) {
+    public HttpApiSelectTask(String URL, Context context, String TAG, Pair[] name_value_pair, Async_Response_JSON_array async_response_json_array, boolean error_flag) {
 
         this.URL = URL;
         this.context = context;
@@ -117,7 +117,7 @@ public class REST_Select_Task extends AsyncTask<Void, Void, String[]> {
         this.error_flag = error_flag;
     }
 
-    public REST_Select_Task(String URL, Context context, String TAG, Pair[] name_value_pair, Async_Response_JSON_array async_response_json_array, boolean error_flag, boolean background_flag) {
+    public HttpApiSelectTask(String URL, Context context, String TAG, Pair[] name_value_pair, Async_Response_JSON_array async_response_json_array, boolean error_flag, boolean background_flag) {
 
         this.URL = URL;
         this.context = context;

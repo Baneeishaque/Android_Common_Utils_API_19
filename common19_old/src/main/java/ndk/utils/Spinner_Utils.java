@@ -14,7 +14,7 @@ import org.json.JSONException;
 
 import java.util.ArrayList;
 
-import ndk.utils.network_task.REST_Select_Task;
+import ndk.utils.network_task.HttpApiSelectTask;
 
 import static ndk.utils.Network_Utils.isOnline;
 import static ndk.utils.ProgressBar_Utils.showProgress;
@@ -43,7 +43,7 @@ public class Spinner_Utils {
 
         if (isOnline(context)) {
             showProgress(true, context, progress_Bar, form);
-            REST_Select_Task REST_select_task = new REST_Select_Task(URL, context, progress_Bar, form, application_name, new Pair[]{}, new REST_Select_Task.Async_Response_JSON_array() {
+            HttpApiSelectTask HttpApiSelectTask = new HttpApiSelectTask(URL, context, progress_Bar, form, application_name, new Pair[]{}, new HttpApiSelectTask.Async_Response_JSON_array() {
 
                 @Override
                 public void processFinish(JSONArray json_array_with_error_status) {
@@ -51,7 +51,7 @@ public class Spinner_Utils {
                 }
 
             });
-            REST_select_task.execute();
+            HttpApiSelectTask.execute();
         } else {
             Toast_Utils.longToast(context, "Internet is unavailable");
         }

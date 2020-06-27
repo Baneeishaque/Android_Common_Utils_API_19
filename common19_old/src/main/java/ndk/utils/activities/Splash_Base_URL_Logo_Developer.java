@@ -1,7 +1,10 @@
 package ndk.utils.activities;
 
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.util.Pair;
@@ -15,15 +18,11 @@ import ndk.utils.R;
 import ndk.utils.Server_Utils;
 import ndk.utils.Toast_Utils;
 import ndk.utils.Update_Utils;
-import ndk.utils.network_task.REST_Select_Task;
-import ndk.utils.network_task.REST_Select_Task_Wrapper;
+import ndk.utils.network_task.HttpApiSelectTask;
+import ndk.utils.network_task.HttpApiSelectTaskWrapper;
 import ndk.utils.update.Update_Application;
 
-//TODO : Full screen splash
-//TODO : Implement hiding of fields - in case of layout
-//TODO : Develop tests
-
-public abstract class Splash_Base_URL extends AppCompatActivity {
+public abstract class Splash_Base_URL_Logo_Developer extends AppCompatActivity {
 
     AppCompatActivity current_activity = this;
 
@@ -35,6 +34,10 @@ public abstract class Splash_Base_URL extends AppCompatActivity {
 
     protected abstract Class configure_NEXT_ACTIVITY_CLASS();
 
+    protected abstract String configure_DEVELOPER();
+
+    protected abstract Drawable configure_LOGO();
+
     protected abstract Pair[] configure_NEXT_ACTIVITY_CLASS_EXTRAS();
 
     @Override
@@ -42,7 +45,13 @@ public abstract class Splash_Base_URL extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.splash);
 
-        REST_Select_Task_Wrapper.execute_splash(this, configure_GET_CONFIGURATION_URL(), configure_APPLICATION_NAME(), new Pair[]{}, new REST_Select_Task.Async_Response_JSON_array() {
+        TextView text_developer = findViewById(R.id.text_Developer);
+        text_developer.setText(configure_DEVELOPER());
+
+        ImageView image_logo = findViewById(R.id.img_Logo);
+        image_logo.setImageDrawable(configure_LOGO());
+
+        HttpApiSelectTaskWrapper.execute_splash(this, configure_GET_CONFIGURATION_URL(), configure_APPLICATION_NAME(), new Pair[]{}, new HttpApiSelectTask.Async_Response_JSON_array() {
 
             public void processFinish(JSONArray json_array) {
                 try {
@@ -62,7 +71,5 @@ public abstract class Splash_Base_URL extends AppCompatActivity {
                 }
             }
         });
-
-
     }
 }

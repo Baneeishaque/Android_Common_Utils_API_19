@@ -1,5 +1,5 @@
 include ':common'
-include ':common19', ':tests19',':Utils_16:common16'
+include ':common19', ':tests19',':common19_old',':Utils_16:common16'
 
 include ':Utils_14:common14'
 project(':Utils_14:common14').projectDir = new File(settingsDir, './Utils_16/Utils_14/common14')

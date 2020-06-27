@@ -4,7 +4,6 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.util.Pair;
@@ -18,11 +17,11 @@ import ndk.utils.R;
 import ndk.utils.Server_Utils;
 import ndk.utils.Toast_Utils;
 import ndk.utils.Update_Utils;
-import ndk.utils.network_task.REST_Select_Task;
-import ndk.utils.network_task.REST_Select_Task_Wrapper;
+import ndk.utils.network_task.HttpApiSelectTask;
+import ndk.utils.network_task.HttpApiSelectTaskWrapper;
 import ndk.utils.update.Update_Application;
 
-public abstract class Splash_Base_URL_Logo_Developer extends AppCompatActivity {
+public abstract class Splash_Base_URL_Logo extends AppCompatActivity {
 
     AppCompatActivity current_activity = this;
 
@@ -34,8 +33,6 @@ public abstract class Splash_Base_URL_Logo_Developer extends AppCompatActivity {
 
     protected abstract Class configure_NEXT_ACTIVITY_CLASS();
 
-    protected abstract String configure_DEVELOPER();
-
     protected abstract Drawable configure_LOGO();
 
     protected abstract Pair[] configure_NEXT_ACTIVITY_CLASS_EXTRAS();
@@ -45,13 +42,10 @@ public abstract class Splash_Base_URL_Logo_Developer extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.splash);
 
-        TextView text_developer = findViewById(R.id.text_Developer);
-        text_developer.setText(configure_DEVELOPER());
-
         ImageView image_logo = findViewById(R.id.img_Logo);
         image_logo.setImageDrawable(configure_LOGO());
 
-        REST_Select_Task_Wrapper.execute_splash(this, configure_GET_CONFIGURATION_URL(), configure_APPLICATION_NAME(), new Pair[]{}, new REST_Select_Task.Async_Response_JSON_array() {
+        HttpApiSelectTaskWrapper.execute_splash(this, configure_GET_CONFIGURATION_URL(), configure_APPLICATION_NAME(), new Pair[]{}, new HttpApiSelectTask.Async_Response_JSON_array() {
 
             public void processFinish(JSONArray json_array) {
                 try {

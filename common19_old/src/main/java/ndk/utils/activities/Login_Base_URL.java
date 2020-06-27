@@ -27,8 +27,8 @@ import ndk.utils.R;
 import ndk.utils.SharedPreference_Utils;
 import ndk.utils.Toast_Utils;
 import ndk.utils.Validation_Utils;
-import ndk.utils.network_task.REST_Select_Task;
-import ndk.utils.network_task.REST_Select_Task_Wrapper;
+import ndk.utils.network_task.HttpApiSelectTask;
+import ndk.utils.network_task.HttpApiSelectTaskWrapper;
 
 //TODO : Create Layout initialization
 
@@ -104,7 +104,7 @@ public abstract class Login_Base_URL extends AppCompatActivity {
                         InputMethodManager.HIDE_NOT_ALWAYS);
             }
 
-            REST_Select_Task.Async_Response_JSON_object async_response_json_object_delegate = new REST_Select_Task.Async_Response_JSON_object() {
+            HttpApiSelectTask.Async_Response_JSON_object AsyncResponseJSONObject_delegate = new HttpApiSelectTask.Async_Response_JSON_object() {
 
                 @Override
                 public void processFinish(JSONObject json_object) {
@@ -132,7 +132,7 @@ public abstract class Login_Base_URL extends AppCompatActivity {
                 }
             };
 
-            REST_Select_Task_Wrapper.execute(configure_SELECT_USER_URL(), activity_context, mProgressView, mLoginFormView, configure_APPLICATION_NAME(), new Pair[]{new Pair<>("username", username.getText().toString()), new Pair<>("password", password.getText().toString())}, async_response_json_object_delegate);
+            HttpApiSelectTaskWrapper.execute(configure_SELECT_USER_URL(), activity_context, mProgressView, mLoginFormView, configure_APPLICATION_NAME(), new Pair[]{new Pair<>("username", username.getText().toString()), new Pair<>("password", password.getText().toString())}, AsyncResponseJSONObject_delegate);
         }
     }
 }

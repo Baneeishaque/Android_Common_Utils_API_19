@@ -11,14 +11,19 @@ import org.json.JSONException;
 
 import ndk.utils.Activity_Utils;
 import ndk.utils.Exception_Utils;
+import ndk.utils.R;
 import ndk.utils.Server_Utils;
 import ndk.utils.Toast_Utils;
 import ndk.utils.Update_Utils;
-import ndk.utils.network_task.REST_Select_Task;
-import ndk.utils.network_task.REST_Select_Task_Wrapper;
+import ndk.utils.network_task.HttpApiSelectTask;
+import ndk.utils.network_task.HttpApiSelectTaskWrapper;
 import ndk.utils.update.Update_Application;
 
-public abstract class Splash_Base_URL_Layout extends AppCompatActivity {
+//TODO : Full screen splash
+//TODO : Implement hiding of fields - in case of layout
+//TODO : Develop tests
+
+public abstract class Splash_Base_URL extends AppCompatActivity {
 
     AppCompatActivity current_activity = this;
 
@@ -30,16 +35,14 @@ public abstract class Splash_Base_URL_Layout extends AppCompatActivity {
 
     protected abstract Class configure_NEXT_ACTIVITY_CLASS();
 
-    protected abstract int configure_LAYOUT();
-
     protected abstract Pair[] configure_NEXT_ACTIVITY_CLASS_EXTRAS();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(configure_LAYOUT());
+        setContentView(R.layout.splash);
 
-        REST_Select_Task_Wrapper.execute_splash(this, configure_GET_CONFIGURATION_URL(), configure_APPLICATION_NAME(), new Pair[]{}, new REST_Select_Task.Async_Response_JSON_array() {
+        HttpApiSelectTaskWrapper.execute_splash(this, configure_GET_CONFIGURATION_URL(), configure_APPLICATION_NAME(), new Pair[]{}, new HttpApiSelectTask.Async_Response_JSON_array() {
 
             public void processFinish(JSONArray json_array) {
                 try {
@@ -51,7 +54,6 @@ public abstract class Splash_Base_URL_Layout extends AppCompatActivity {
                         } else {
                             Toast_Utils.longToast(getApplicationContext(), "Latest Version...");
                             Activity_Utils.start_activity_with_string_extras_and_finish(current_activity, configure_NEXT_ACTIVITY_CLASS(), configure_NEXT_ACTIVITY_CLASS_EXTRAS());
-
                         }
                     }
                 } catch (JSONException exception) {
@@ -60,5 +62,7 @@ public abstract class Splash_Base_URL_Layout extends AppCompatActivity {
                 }
             }
         });
+
+
     }
 }
