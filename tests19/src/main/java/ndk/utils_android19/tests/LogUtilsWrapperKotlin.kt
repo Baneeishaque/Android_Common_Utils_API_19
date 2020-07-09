@@ -1,7 +1,6 @@
 package ndk.utils_android19.tests
 
-import ndk.utils_android14.LogUtils
-import ndk.utils_android19.BuildConfig
+import ndk.utils_android1.LogUtils
 
 open class LogUtilsWrapperKotlin(tag: String) {
 

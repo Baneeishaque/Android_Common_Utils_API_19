@@ -1,20 +1,20 @@
-package ndk.utils_android19.from_shc;
+package ndk.utils_android19;
 
 import android.content.Context;
 import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import ndk.utils_android14.ActivityUtils;
+import ndk.utils_android1.ActivityUtils;
 
 public class ButtonUtils {
 
     public static View.OnClickListener getStartActivityButtonEvent(Context activityContext, Class targetClass) {
-        return v -> ActivityUtils.startActivity(activityContext, targetClass);
+        return v -> ActivityUtils.startActivityForClass(activityContext, targetClass);
     }
 
     public static View.OnClickListener getStartActivityWithFinishButtonEvent(Context activityContext, Class targetClass, String applicationName) {
-        return v -> ActivityUtils.startActivityWithFinish(activityContext, targetClass);
+        return v -> ActivityUtils.startActivityForClassWithFinish(activityContext, targetClass);
     }
 
     public static View.OnClickListener getEmptyButtonEvent() {

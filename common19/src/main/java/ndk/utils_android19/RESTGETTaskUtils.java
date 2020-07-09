@@ -1,4 +1,4 @@
-package ndk.utils_android19.from_shc;
+package ndk.utils_android19;
 
 import android.content.Context;
 import android.util.Log;
@@ -6,11 +6,11 @@ import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import ndk.utils_android16.NetworkUtils;
-import ndk.utils_android16.ProgressBarUtils;
+import ndk.utils_android1.NetworkUtils;
+import ndk.utils_android1.ProgressBarUtils;
 import ndk.utils_android1.ToastUtils;
 
-import static ndk.utils_android16.NetworkUtils.isOnline;
+import static ndk.utils_android1.NetworkUtils.isOnline;
 
 public abstract class RESTGETTaskUtils {
 

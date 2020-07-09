@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 //TODO : Change API
 
-public class ExceptionUtils extends ndk.utils_android16.ExceptionUtils {
+public class ExceptionUtils19 extends ndk.utils_android1.ExceptionUtils {
 
     public static String getExceptionDetailsApi19(Exception e) {
 

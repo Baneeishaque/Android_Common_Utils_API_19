@@ -1,4 +1,4 @@
-package ndk.utils_android19.from_shc;
+package ndk.utils_android19;
 
 import android.content.Context;
 import android.location.Location;
@@ -9,7 +9,7 @@ import android.os.Bundle;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import ndk.utils_android16.ErrorUtils;
+import ndk.utils_android1.ErrorUtils;
 import ndk.utils_android16.SnackbarUtils;
 
 public class LocationUtils {

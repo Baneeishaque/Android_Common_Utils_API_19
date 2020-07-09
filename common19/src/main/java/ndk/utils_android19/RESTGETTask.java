@@ -1,4 +1,4 @@
-package ndk.utils_android19.from_shc;
+package ndk.utils_android19;
 
 import android.content.Context;
 import android.os.AsyncTask;
@@ -12,10 +12,10 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import ndk.utils_android16.NetworkUtils;
+import ndk.utils_android1.NetworkUtils;
 
-import static ndk.utils_android16.ProgressBarUtils.showProgress;
-import static ndk.utils_android19.from_shc.NetworkUtilsForHttpGet.performHTTPGET;
+import static ndk.utils_android1.ProgressBarUtils.showProgress;
+import static ndk.utils_android19.NetworkUtilsForHttpGet.performHTTPGET;
 
 public class RESTGETTask extends AsyncTask<Void, Void, String[]> {
 

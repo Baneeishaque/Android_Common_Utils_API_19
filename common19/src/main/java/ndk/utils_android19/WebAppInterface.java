@@ -1,4 +1,4 @@
-package ndk.utils_android19.from_shc;
+package ndk.utils_android19;
 
 import android.content.Context;
 import android.webkit.JavascriptInterface;
