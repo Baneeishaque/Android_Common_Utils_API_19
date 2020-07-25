@@ -1,5 +1,13 @@
-include ':common'
-include ':common19', ':tests19',':common19_old',':Utils_16:common16'
+include ':Utils_19:common19'
+project(':Utils_19:common19').projectDir=new File(settingsDir,'./common19')
+
+include ':common19_old'
+include ':tests19'
+include ':Utils_16:common16'
+include ':Utils_16:tests16'
+
+include ':Utils11:common11'
+project(':Utils11:common11').projectDir = new File(settingsDir, './Utils_16/Utils11/common11')
 
 include ':Utils_14:common14'
 project(':Utils_14:common14').projectDir = new File(settingsDir, './Utils_16/Utils_14/common14')
