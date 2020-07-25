@@ -1,5 +1,5 @@
-include ':Utils_19:common19'
-project(':Utils_19:common19').projectDir=new File(settingsDir,'./common19')
+include ':Utils19:common19'
+project(':Utils19:common19').projectDir=new File(settingsDir,'./common19')
 
 include ':common19_old'
 include ':tests19'
