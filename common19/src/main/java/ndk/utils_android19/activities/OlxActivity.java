@@ -1,4 +1,4 @@
-package ndk.utils_android9.activities;
+package ndk.utils_android19.activities;
 
 public abstract class OlxActivity extends WebViewCoverActivity {
 
@@ -9,7 +9,7 @@ public abstract class OlxActivity extends WebViewCoverActivity {
     }
 
     @Override
-    protected boolean isSameHostLinkCheckEnabled() {
+    public boolean isSameHostLinkCheckEnabled() {
 
         return false;
     }
@@ -21,25 +21,25 @@ public abstract class OlxActivity extends WebViewCoverActivity {
     }
 
     @Override
-    protected boolean isAnotherHostCheckEnabled() {
+    public boolean isAnotherHostCheckEnabled() {
 
         return true;
     }
 
     @Override
-    protected String configureAnotherHostPointer() {
+    public String configureAnotherHostPointer() {
 
         return "www.olx.co.za";
     }
 
     @Override
-    protected boolean isAnotherHostLinkCheckEnabled() {
+    public boolean isAnotherHostLinkCheckEnabled() {
 
         return false;
     }
 
     @Override
-    protected String configureAnotherHostLinkPointer() {
+    public String configureAnotherHostLinkPointer() {
 
         return "";
     }

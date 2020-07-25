@@ -1,4 +1,4 @@
-package ndk.utils_android9.activities;
+package ndk.utils_android19.activities;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -12,9 +12,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.Objects;
 
-import ndk.utils_android1.ActivityUtils;
+import ndk.utils_android1.ActivityUtils1;
 import ndk.utils_android1.LogUtils;
-import ndk.utils_android9.R;
+import ndk.utils_android19.R;
 
 public abstract class WebViewCoverActivity extends AppCompatActivity {
 
@@ -69,19 +69,19 @@ public abstract class WebViewCoverActivity extends AppCompatActivity {
 
     public abstract Class configureNextActivity();
 
-    protected abstract boolean isSameHostLinkCheckEnabled();
+    public abstract boolean isSameHostLinkCheckEnabled();
 
-    protected abstract String configureAnotherHostLinkPointer();
+    public abstract String configureAnotherHostLinkPointer();
 
-    protected abstract boolean isAnotherHostLinkCheckEnabled();
+    public abstract boolean isAnotherHostLinkCheckEnabled();
 
-    protected abstract String configureAnotherHostPointer();
+    public abstract String configureAnotherHostPointer();
 
-    protected abstract boolean isAnotherHostCheckEnabled();
+    public abstract boolean isAnotherHostCheckEnabled();
 
     void gotoMaskedActivity() {
 
-        ActivityUtils.startActivityForClass(currentActivity, configureNextActivity());
+        ActivityUtils1.startActivityForClass(currentActivity, configureNextActivity());
     }
 
     class AmazonWebViewClient extends WebViewClient {
@@ -89,10 +89,10 @@ public abstract class WebViewCoverActivity extends AppCompatActivity {
         @Override
         public boolean shouldOverrideUrlLoading(WebView view, String url) {
 
-            LogUtils.debug("URL : " + url);
+            LogUtils.debug(this.getClass().getSimpleName(), "URL : " + url);
 
             String tempHost = Uri.parse(url).getHost();
-            LogUtils.debug("URL Host : " + tempHost);
+            LogUtils.debug(this.getClass().getSimpleName(), "URL Host : " + tempHost);
 
             if (isAnotherHostCheckEnabled() && Objects.equals(tempHost, configureAnotherHostPointer()) && isAnotherHostLinkCheckEnabled() && url.contains(configureAnotherHostLinkPointer())) {
 

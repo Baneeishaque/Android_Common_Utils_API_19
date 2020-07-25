@@ -13,7 +13,7 @@ import androidx.core.util.Pair;
 
 import java.util.Objects;
 
-import ndk.utils_android1.ActivityUtils;
+import ndk.utils_android1.ActivityUtils1;
 import ndk.utils_android1.ActivityWithContexts;
 import ndk.utils_android1.DisplayHelper;
 import ndk.utils_android19.R;
@@ -60,7 +60,7 @@ public abstract class TextWithButtonsActivity extends ActivityWithContexts {
 
         for (final Pair button_item : buttons) {
 
-            Button button = createButton(Objects.requireNonNull(button_item.first).toString(), v -> ActivityUtils.startActivityForClass(currentActivityContext, (Class) button_item.second));
+            Button button = createButton(Objects.requireNonNull(button_item.first).toString(), v -> ActivityUtils1.startActivityForClass(currentActivityContext, (Class) button_item.second));
 
             isFirstComponent = addComponentToTopOfConstraintLayoutOrBottomOfConstraintLayoutComponent(constraintLayout, button, isFirstComponent, previousButton);
 

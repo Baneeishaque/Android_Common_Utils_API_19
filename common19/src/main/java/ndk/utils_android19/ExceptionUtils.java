@@ -2,9 +2,11 @@ package ndk.utils_android19;
 
 import java.util.Arrays;
 
+import ndk.utils_android1.ExceptionUtils1;
+
 //TODO : Change API
 
-public class ExceptionUtils19 extends ndk.utils_android1.ExceptionUtils {
+public class ExceptionUtils extends ExceptionUtils1 {
 
     public static String getExceptionDetailsApi19(Exception e) {
 
