@@ -6,7 +6,7 @@ apply plugin: 'kotlin-android-extensions'
 android {
 
     compileSdkVersion 30
-    buildToolsVersion '30.0.1'
+    buildToolsVersion "30.0.2"
 
     defaultConfig {
 
@@ -17,20 +17,17 @@ android {
 
         versionCode 1
         versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
     }
 
     buildTypes {
 
-        debug {
+        staging {
 
-            applicationIdSuffix ".debug"
-        }
-
-        release {
-
-            shrinkResources false
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            initWith release
+            debuggable true
         }
 
         //The `initWith` property allows you to copy configurations from other build types,then configure just the settings you want to change.
@@ -96,6 +93,52 @@ android {
 
 //    viewBinding.enabled = true
 
+    flavorDimensions "relevence"
+    productFlavors {
+
+        // When building a variant that uses this flavor, the following configurations override those in the defaultConfig block.
+
+        development {
+
+            dimension "relevence"
+
+            // To avoid using legacy multidex when building from the command line, set minSdkVersion to 21 or higher. When using Android Studio 2.3 or higher, the build automatically avoids legacy multidex when deploying to a device running API level 21 or higher—regardless of what you set as your minSdkVersion.
+//            minSdkVersion 21
+
+            // The following configuration limits the usage of mdpi screen-density resources.
+            resConfigs "mdpi"
+        }
+
+        production {
+
+            dimension "relevence"
+            // If you've configured the defaultConfig block for the release version of your app, you can leave this block empty and Gradle uses configurations in the defaultConfig block instead. You still need to create this flavor. Otherwise, all variants use the "development" flavor configurations.
+        }
+    }
+
+    variantFilter { variant ->
+
+        def names = variant.flavors*.name
+
+        // To check for a certain build type, use variant.buildType.name == "<buildType>"
+        if (names.contains("development") && names.contains("release")) {
+
+            // Gradle ignores any variants that satisfy the conditions above.
+            setIgnore(true)
+        }
+
+        if (names.contains("production") && names.contains("debug")) {
+
+            // Gradle ignores any variants that satisfy the conditions above.
+            setIgnore(true)
+        }
+
+        if (names.contains("development") && names.contains("staging")) {
+
+            // Gradle ignores any variants that satisfy the conditions above.
+            setIgnore(true)
+        }
+    }
     compileOptions {
 
         sourceCompatibility JavaVersion.VERSION_1_8

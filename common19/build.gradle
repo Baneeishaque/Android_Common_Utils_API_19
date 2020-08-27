@@ -3,7 +3,7 @@ apply plugin: 'com.android.library'
 android {
 
     compileSdkVersion 30
-    buildToolsVersion '30.0.1'
+    buildToolsVersion '30.0.2'
     useLibrary  'org.apache.http.legacy'
 
     defaultConfig {
@@ -20,11 +20,10 @@ android {
     buildTypes {
 
         release {
+
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
-
-        //The `initWith` property allows you to copy configurations from other build types,then configure just the settings you want to change.
         staging {
 
             initWith release
@@ -32,12 +31,6 @@ android {
         }
     }
 
-    lintOptions {
-
-        abortOnError false
-    }
-
-    // Specifies flavor dimension.
     flavorDimensions "relevence"
     productFlavors {
 
@@ -84,7 +77,6 @@ android {
             setIgnore(true)
         }
     }
-
     compileOptions {
 
         sourceCompatibility JavaVersion.VERSION_1_8
@@ -97,7 +89,7 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     implementation 'androidx.appcompat:appcompat:1.2.0'
-    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.0'
     implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
 
     implementation 'com.itextpdf:itext-pdfa:5.5.5'
