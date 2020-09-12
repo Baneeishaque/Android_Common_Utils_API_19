@@ -12,7 +12,7 @@
         android:layout_marginBottom="8dp"
         android:visibility="gone" />
 
-    <ndk.utils_android16.widgets.pass_book.Pass_Book_TableView
+    <ndk.utils_android16.widgets.pass_book.PassBookTableView
         android:id="@+id/tableView"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
