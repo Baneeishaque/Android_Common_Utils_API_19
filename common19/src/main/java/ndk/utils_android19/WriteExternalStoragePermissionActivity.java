@@ -2,7 +2,7 @@ package ndk.utils_android19;
 
 import android.Manifest;
 
-import ndk.utils_android1.PermissionActivity;
+import ndk.utils_android14.PermissionActivity;
 
 public abstract class WriteExternalStoragePermissionActivity extends PermissionActivity {
 

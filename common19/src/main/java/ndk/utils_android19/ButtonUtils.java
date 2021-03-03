@@ -6,6 +6,7 @@ import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 
 import ndk.utils_android1.ActivityUtils1;
+import ndk.utils_android14.ActivityUtils14;
 
 public class ButtonUtils {
 
@@ -14,7 +15,7 @@ public class ButtonUtils {
     }
 
     public static View.OnClickListener getStartActivityWithFinishButtonEvent(Context activityContext, Class targetClass, String applicationName) {
-        return v -> ActivityUtils1.startActivityForClassWithFinish(activityContext, targetClass);
+        return v -> ActivityUtils14.startActivityForClassWithFinish(activityContext, targetClass);
     }
 
     public static View.OnClickListener getEmptyButtonEvent() {

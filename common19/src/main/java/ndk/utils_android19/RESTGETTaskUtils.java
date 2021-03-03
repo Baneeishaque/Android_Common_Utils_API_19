@@ -7,6 +7,7 @@ import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 
 import ndk.utils_android1.NetworkUtils;
+import ndk.utils_android14.NetworkUtils14;
 import ndk.utils_android1.ProgressBarUtils;
 import ndk.utils_android1.ToastUtils;
 
@@ -81,7 +82,7 @@ public abstract class RESTGETTaskUtils {
             rest_select_task.execute();
         } else {
             View.OnClickListener retry_Failed_Network_Task = view -> execute_splash(context, task_URL, async_response_json_array);
-            NetworkUtils.displayOfflineLongNoFabBottomSnackBar(((AppCompatActivity) context).getWindow().getDecorView(), retry_Failed_Network_Task);
+            NetworkUtils14.displayOfflineLongNoFabBottomSnackBar(((AppCompatActivity) context).getWindow().getDecorView(), retry_Failed_Network_Task);
         }
     }
 }
