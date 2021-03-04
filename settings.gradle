@@ -1,7 +1,6 @@
 include ':Utils_19:common19'
 project(':Utils_19:common19').projectDir=new File(settingsDir,'./common19')
 
-//include ':common19_old'
 include ':tests19'
 include ':Utils_16:common16'
 include ':Utils_16:tests16'
@@ -11,6 +10,9 @@ project(':Utils11:common11').projectDir = new File(settingsDir, './Utils_16/Util
 
 include ':Utils_14:common14'
 project(':Utils_14:common14').projectDir = new File(settingsDir, './Utils_16/Utils_14/common14')
+
+include ':Resources:common'
+project(':Resources:common').projectDir = new File(settingsDir, './Utils_16/Utils_14/Resources/common')
 
 include ':Utils_1:common1'
 project(':Utils_1:common1').projectDir = new File(settingsDir, './Utils_16/Utils_14/Utils_1/common1')
