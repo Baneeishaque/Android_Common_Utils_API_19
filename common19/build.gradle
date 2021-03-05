@@ -92,7 +92,7 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:2.0.1'
     implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
 
-    implementation 'com.itextpdf:itext-pdfa:5.5.13.2'
+    implementation 'com.itextpdf:itext-pdfa:5.5.6-1'
     implementation 'de.codecrafters.tableview:tableview:2.8.1'
 
     testImplementation 'junit:junit:4.13'
