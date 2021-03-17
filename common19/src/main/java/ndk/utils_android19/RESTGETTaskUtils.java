@@ -6,10 +6,9 @@ import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import ndk.utils_android1.NetworkUtils;
-import ndk.utils_android14.NetworkUtils14;
 import ndk.utils_android1.ProgressBarUtils;
 import ndk.utils_android1.ToastUtils;
+import ndk.utils_android14.NetworkUtils14;
 
 import static ndk.utils_android1.NetworkUtils.isOnline;
 

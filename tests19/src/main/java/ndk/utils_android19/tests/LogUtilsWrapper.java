@@ -6,12 +6,11 @@ public class LogUtilsWrapper {
 
     private static String tag;
 
-    LogUtilsWrapper(String _tag){
-        tag=_tag;
+    LogUtilsWrapper(String _tag) {
+        tag = _tag;
     }
 
-    public static void debug(String message)
-    {
+    public static void debug(String message) {
         LogUtils.debug(tag, message);
     }
 }
