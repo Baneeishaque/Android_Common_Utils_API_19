@@ -95,7 +95,7 @@ dependencies {
     implementation 'com.itextpdf:itext-pdfa:5.5.6-1'
     implementation 'de.codecrafters.tableview:tableview:2.8.1'
 
-    testImplementation 'junit:junit:4.13'
+    testImplementation 'junit:junit:4.13.2'
 
     implementation project(path: ':Utils16:common16')
     implementation project(path: ':Utils14:common14')
