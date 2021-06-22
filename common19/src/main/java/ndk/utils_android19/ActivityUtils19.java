@@ -4,9 +4,10 @@ import android.content.Context;
 import android.content.Intent;
 
 import ndk.utils_android1.ActivityUtils1;
+import ndk.utils_android14.ActivityUtils14;
 import ndk.utils_android16.Alert_Dialog_Utils;
 
-public class ActivityUtils extends ActivityUtils1 {
+public class ActivityUtils19 extends ActivityUtils14 {
 
     public static void toHomeActivity(Context context) {
         context.startActivity(addCategoryToIntent(getIntentWithFlags(Intent.ACTION_MAIN, new int[]{Intent.FLAG_ACTIVITY_NEW_TASK}), new String[]{Intent.CATEGORY_HOME}));
