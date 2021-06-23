@@ -102,6 +102,11 @@ android {
 //
 //        experimental = true
 //    }
+
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+    }
 }
 
 dependencies {
