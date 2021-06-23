@@ -6,7 +6,7 @@ import android.util.Log;
 
 import java.io.File;
 
-import ndk.utils_android1.ToastUtils;
+import ndk.utils_android1.ToastUtils1;
 
 public class FolderUtils {
 
@@ -29,12 +29,12 @@ public class FolderUtils {
                 return true;
             } else {
                 Log.i(applicationName, "Folder Creation failure ");
-                ToastUtils.longToast(context, "Folder fail");
+                ToastUtils1.longToast(context, "Folder fail");
                 return false;
             }
         } else {
             Log.i(applicationName, "Folder Creation failure ");
-            ToastUtils.longToast(context, "Folder fail");
+            ToastUtils1.longToast(context, "Folder fail");
             return false;
         }
     }

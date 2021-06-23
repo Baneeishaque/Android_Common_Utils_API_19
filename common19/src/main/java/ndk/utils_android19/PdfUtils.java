@@ -27,7 +27,7 @@ import java.io.OutputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import ndk.utils_android1.ToastUtils;
+import ndk.utils_android1.ToastUtils1;
 
 public class PdfUtils {
 
@@ -169,11 +169,11 @@ public class PdfUtils {
             } catch (DocumentException | FileNotFoundException e) {
                 e.printStackTrace();
                 Log.i(TAG, "Pdf Creation failure " + e.getLocalizedMessage());
-                ToastUtils.longToast(context, "Pdf fail");
+                ToastUtils1.longToast(context, "Pdf fail");
             }
         } else {
             Log.i(TAG, "Folder Creation failure ");
-            ToastUtils.longToast(context, "Folder fail");
+            ToastUtils1.longToast(context, "Folder fail");
         }
         return false;
     }

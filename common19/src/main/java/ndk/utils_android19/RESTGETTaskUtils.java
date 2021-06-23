@@ -6,22 +6,22 @@ import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import ndk.utils_android1.ProgressBarUtils;
-import ndk.utils_android1.ToastUtils;
+import ndk.utils_android1.ProgressBarUtils1;
+import ndk.utils_android1.ToastUtils1;
 import ndk.utils_android14.NetworkUtils14;
 
-import static ndk.utils_android1.NetworkUtils.isOnline;
+import static ndk.utils_android1.NetworkUtils1.isOnline;
 
 public abstract class RESTGETTaskUtils {
 
     public void execute(String task_URL, Context context, View mProgressView, View mLoginFormView, RESTGETTask.Async_Response async_response) {
 
         if (isOnline(context)) {
-            ProgressBarUtils.showProgress(true, context, mProgressView, mLoginFormView);
+            ProgressBarUtils1.showProgress(true, context, mProgressView, mLoginFormView);
             RESTGETTask rest_select_task = new RESTGETTask(task_URL, context, mProgressView, mLoginFormView, configureApplicationName(), async_response);
             rest_select_task.execute();
         } else {
-            ToastUtils.longToast(context, "Internet is unavailable");
+            ToastUtils1.longToast(context, "Internet is unavailable");
         }
     }
 
@@ -30,33 +30,33 @@ public abstract class RESTGETTaskUtils {
     public void execute(String task_URL, Context context, View mProgressView, View mLoginFormView, RESTGETTask.Async_Response_JSON_object async_response_json_object) {
 
         if (isOnline(context)) {
-            ProgressBarUtils.showProgress(true, context, mProgressView, mLoginFormView);
+            ProgressBarUtils1.showProgress(true, context, mProgressView, mLoginFormView);
             RESTGETTask rest_select_task = new RESTGETTask(task_URL, context, mProgressView, mLoginFormView, configureApplicationName(), async_response_json_object);
             rest_select_task.execute();
         } else {
-            ToastUtils.longToast(context, "Internet is unavailable");
+            ToastUtils1.longToast(context, "Internet is unavailable");
         }
     }
 
     public void execute(String task_URL, Context context, View mProgressView, View mLoginFormView, RESTGETTask.Async_Response_JSON_array async_response_json_array) {
 
         if (isOnline(context)) {
-            ProgressBarUtils.showProgress(true, context, mProgressView, mLoginFormView);
+            ProgressBarUtils1.showProgress(true, context, mProgressView, mLoginFormView);
             RESTGETTask rest_select_task = new RESTGETTask(task_URL, context, mProgressView, mLoginFormView, configureApplicationName(), async_response_json_array);
             rest_select_task.execute();
         } else {
-            ToastUtils.longToast(context, "Internet is unavailable");
+            ToastUtils1.longToast(context, "Internet is unavailable");
         }
     }
 
     public void execute(String task_URL, Context context, View mProgressView, View mLoginFormView, RESTGETTask.Async_Response_JSON_array async_response_json_array, boolean error_flag) {
 
         if (isOnline(context)) {
-            ProgressBarUtils.showProgress(true, context, mProgressView, mLoginFormView);
+            ProgressBarUtils1.showProgress(true, context, mProgressView, mLoginFormView);
             RESTGETTask rest_select_task = new RESTGETTask(task_URL, context, mProgressView, mLoginFormView, configureApplicationName(), async_response_json_array, error_flag);
             rest_select_task.execute();
         } else {
-            ToastUtils.longToast(context, "Internet is unavailable");
+            ToastUtils1.longToast(context, "Internet is unavailable");
         }
     }
 
@@ -69,7 +69,7 @@ public abstract class RESTGETTaskUtils {
             if (background_flag) {
                 Log.d(configureApplicationName(), "Internet is unavailable");
             } else {
-                ToastUtils.longToast(context, "Internet is unavailable");
+                ToastUtils1.longToast(context, "Internet is unavailable");
             }
         }
     }

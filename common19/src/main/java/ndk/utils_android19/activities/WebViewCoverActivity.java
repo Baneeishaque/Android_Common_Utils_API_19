@@ -13,7 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import java.util.Objects;
 
 import ndk.utils_android1.ActivityUtils1;
-import ndk.utils_android1.LogUtils;
+import ndk.utils_android1.LogUtils1;
 import ndk.utils_android19.R;
 
 public abstract class WebViewCoverActivity extends AppCompatActivity {
@@ -89,10 +89,10 @@ public abstract class WebViewCoverActivity extends AppCompatActivity {
         @Override
         public boolean shouldOverrideUrlLoading(WebView view, String url) {
 
-            LogUtils.debug(this.getClass().getSimpleName(), "URL : " + url);
+            LogUtils1.debug(this.getClass().getSimpleName(), "URL : " + url);
 
             String tempHost = Uri.parse(url).getHost();
-            LogUtils.debug(this.getClass().getSimpleName(), "URL Host : " + tempHost);
+            LogUtils1.debug(this.getClass().getSimpleName(), "URL Host : " + tempHost);
 
             if (isAnotherHostCheckEnabled() && Objects.equals(tempHost, configureAnotherHostPointer()) && isAnotherHostLinkCheckEnabled() && url.contains(configureAnotherHostLinkPointer())) {
 

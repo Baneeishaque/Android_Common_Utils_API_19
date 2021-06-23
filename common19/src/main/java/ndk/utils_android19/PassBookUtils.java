@@ -22,7 +22,7 @@ import java.io.FileOutputStream;
 import java.io.OutputStream;
 
 import ndk.utils_android1.DateUtils;
-import ndk.utils_android1.ToastUtils;
+import ndk.utils_android1.ToastUtils1;
 import ndk.utils_android16.models.sortable_tableView.pass_book.PassBookEntry;
 import ndk.utils_android16.models.sortable_tableView.pass_book.PassBookEntryV2;
 
@@ -128,7 +128,7 @@ public class PassBookUtils extends ndk.utils_android16.Pass_Book_Utils {
             } catch (DocumentException | FileNotFoundException e) {
                 e.printStackTrace();
                 Log.i(applicationName, "Pdf Creation failure " + e.getLocalizedMessage());
-                ToastUtils.longToast(context, "Pdf fail");
+                ToastUtils1.longToast(context, "Pdf fail");
             }
         }
         return false;

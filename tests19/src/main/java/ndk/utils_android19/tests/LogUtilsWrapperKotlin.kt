@@ -1,6 +1,6 @@
 package ndk.utils_android19.tests
 
-import ndk.utils_android1.LogUtils
+import ndk.utils_android1.LogUtils1
 
 open class LogUtilsWrapperKotlin(tag: String) {
 
@@ -16,7 +16,7 @@ open class LogUtilsWrapperKotlin(tag: String) {
         @JvmStatic
         fun debug(message: String) {
 
-            LogUtils.debug(tag, message)
+            LogUtils1.debug(tag, message)
         }
     }
 }

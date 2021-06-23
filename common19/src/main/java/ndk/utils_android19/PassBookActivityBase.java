@@ -21,7 +21,7 @@ import ndk.utils_android16.network_task.LoadPassBookTask;
 import ndk.utils_android16.widgets.pass_book.PassBookTableView;
 import ndk.utils_android16.widgets.pass_book.PassBookTableViewV2;
 
-import static ndk.utils_android1.ProgressBarUtils.showProgress;
+import static ndk.utils_android1.ProgressBarUtils1.showProgress;
 import static ndk.utils_android16.Pdf_Utils.prompt_For_Next_Action_After_Creation;
 import static ndk.utils_android19.PassBookUtils.createPassBookPdf;
 

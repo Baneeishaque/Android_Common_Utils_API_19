@@ -12,9 +12,9 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import ndk.utils_android1.NetworkUtils;
+import ndk.utils_android1.NetworkUtils1;
 
-import static ndk.utils_android1.ProgressBarUtils.showProgress;
+import static ndk.utils_android1.ProgressBarUtils1.showProgress;
 import static ndk.utils_android19.NetworkUtilsForHttpGet.performHTTPGET;
 
 public class RESTGETTask extends AsyncTask<Void, Void, String[]> {
@@ -139,7 +139,7 @@ public class RESTGETTask extends AsyncTask<Void, Void, String[]> {
 
             if (network_action_response_array[0].equals("1")) {
 
-                NetworkUtils.displayFriendlyExceptionMessage(context, network_action_response_array[1]);
+                NetworkUtils1.displayFriendlyExceptionMessage(context, network_action_response_array[1]);
                 Log.d(TAG, "Network Action response is " + network_action_response_array[1]);
                 async_response.processFinish("exception");
 
@@ -154,7 +154,7 @@ public class RESTGETTask extends AsyncTask<Void, Void, String[]> {
 
             if (network_action_response_array[0].equals("1")) {
 
-                NetworkUtils.displayFriendlyExceptionMessage(context, network_action_response_array[1]);
+                NetworkUtils1.displayFriendlyExceptionMessage(context, network_action_response_array[1]);
                 Log.d(TAG, "Network Action response is " + network_action_response_array[1]);
 
             } else {

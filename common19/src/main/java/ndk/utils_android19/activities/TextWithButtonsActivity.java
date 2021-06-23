@@ -15,10 +15,10 @@ import java.util.Objects;
 
 import ndk.utils_android1.ActivityUtils1;
 import ndk.utils_android1.DisplayHelper;
-import ndk.utils_android14.ActivityWithContexts;
+import ndk.utils_android14.ActivityWithContexts14;
 import ndk.utils_android19.R;
 
-public abstract class TextWithButtonsActivity extends ActivityWithContexts {
+public abstract class TextWithButtonsActivity extends ActivityWithContexts14 {
 
     public ScrollView scrollView;
     public ProgressBar progressBar;
