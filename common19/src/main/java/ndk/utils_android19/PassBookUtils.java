@@ -21,7 +21,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.OutputStream;
 
-import ndk.utils_android1.DateUtils;
+import ndk.utils_android1.DateUtils1;
 import ndk.utils_android1.ToastUtils1;
 import ndk.utils_android16.models.sortable_tableView.pass_book.PassBookEntry;
 import ndk.utils_android16.models.sortable_tableView.pass_book.PassBookEntryV2;
@@ -98,7 +98,7 @@ public class PassBookUtils extends ndk.utils_android16.Pass_Book_Utils {
                 if (v2Flag) {
                     if (!current_pass_book_entries_v2.isEmpty()) {
                         for (PassBookEntryV2 pass_book_entry_v2 : current_pass_book_entries_v2) {
-                            table.addCell(DateUtils.normalDateTimeShortYearFormat.format(pass_book_entry_v2.getInsertionDate()));
+                            table.addCell(DateUtils1.normalDateTimeShortYearFormat.format(pass_book_entry_v2.getInsertionDate()));
                             table.addCell(pass_book_entry_v2.getParticulars());
                             table.addCell(String.valueOf(pass_book_entry_v2.getSecondAccountName()));
                             table.addCell(String.valueOf(pass_book_entry_v2.getCreditAmount()));
@@ -109,7 +109,7 @@ public class PassBookUtils extends ndk.utils_android16.Pass_Book_Utils {
                 } else {
                     if (!current_pass_book_entries.isEmpty()) {
                         for (PassBookEntry pass_book_entry : current_pass_book_entries) {
-                            table.addCell(DateUtils.normalDateTimeShortYearFormat.format(pass_book_entry.getInsertionDate()));
+                            table.addCell(DateUtils1.normalDateTimeShortYearFormat.format(pass_book_entry.getInsertionDate()));
                             table.addCell(pass_book_entry.getParticulars());
                             table.addCell(String.valueOf(pass_book_entry.getDebitAmount()));
                             table.addCell(String.valueOf(pass_book_entry.getCreditAmount()));
