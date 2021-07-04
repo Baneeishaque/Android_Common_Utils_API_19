@@ -14,8 +14,9 @@ import androidx.core.util.Pair;
 import java.util.Objects;
 
 import ndk.utils_android1.ActivityUtils1;
-import ndk.utils_android1.DisplayHelper;
 import ndk.utils_android14.ActivityWithContexts14;
+import ndk.utils_android19.ButtonUtils19;
+import ndk.utils_android19.ConstraintLayoutUtils19;
 import ndk.utils_android19.R;
 
 public abstract class TextWithButtonsActivity extends ActivityWithContexts14 {
@@ -25,6 +26,7 @@ public abstract class TextWithButtonsActivity extends ActivityWithContexts14 {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_text_with_buttons);
 
@@ -47,7 +49,7 @@ public abstract class TextWithButtonsActivity extends ActivityWithContexts14 {
 
         for (final Pair button_item : buttons) {
 
-            Button button = createButton(Objects.requireNonNull(button_item.first).toString(), (View.OnClickListener) button_item.second);
+            Button button = ButtonUtils19.createButtonWithClickEvent(currentActivityContext, Objects.requireNonNull(button_item.first).toString(), (View.OnClickListener) button_item.second);
             addComponentToBottomOfConstraintLayoutComponent(constraintLayout, button, component);
             component = button;
         }
@@ -60,7 +62,7 @@ public abstract class TextWithButtonsActivity extends ActivityWithContexts14 {
 
         for (final Pair button_item : buttons) {
 
-            Button button = createButton(Objects.requireNonNull(button_item.first).toString(), v -> ActivityUtils1.startActivityForClass(currentActivityContext, (Class) button_item.second));
+            Button button = ButtonUtils19.createButtonWithClickEvent(currentActivityContext, Objects.requireNonNull(button_item.first).toString(), v -> ActivityUtils1.startActivityForClass(currentActivityContext, (Class) button_item.second));
 
             isFirstComponent = addComponentToTopOfConstraintLayoutOrBottomOfConstraintLayoutComponent(constraintLayout, button, isFirstComponent, previousButton);
 
@@ -88,7 +90,7 @@ public abstract class TextWithButtonsActivity extends ActivityWithContexts14 {
 
     private ConstraintSet getLeftRightConstraintLayoutTopOrComponentBottomConnectedConstraintSet(ConstraintLayout constraintLayout, View component, boolean isFirstComponent, View previousComponent) {
 
-        ConstraintSet constraintSet = getLeftRightConnectedConstraintSet(constraintLayout, component);
+        ConstraintSet constraintSet = ConstraintLayoutUtils19.get16dpMarginLeftRightLayoutConnectedConstraintSet(constraintLayout, component);
         if (isFirstComponent) {
             constraintSet.connect(component.getId(), ConstraintSet.TOP, constraintLayout.getId(), ConstraintSet.TOP, 16);
         } else {
@@ -105,8 +107,7 @@ public abstract class TextWithButtonsActivity extends ActivityWithContexts14 {
         //Third Code
         constraintLayout.addView(component);
         //TODO : Bug
-        getLeftRightComponentBottomConnectedConstraintSet(constraintLayout, component, topComponent).applyTo(constraintLayout);
-
+        ConstraintLayoutUtils19.getCustomDpMarginLeftRightLayoutBottomComponentConnectedConstraintSet(constraintLayout, component, topComponent, 16);
     }
 
     private void addComponentToConstraintLayout(ConstraintLayout constraintLayout, View component, ConstraintSet constraintSet) {
@@ -116,36 +117,4 @@ public abstract class TextWithButtonsActivity extends ActivityWithContexts14 {
         constraintSet.applyTo(constraintLayout);
     }
 
-    private ConstraintSet getLeftRightComponentBottomConnectedConstraintSet(ConstraintLayout constraintLayout, View component, View topComponent) {
-
-        ConstraintSet constraintSet = getLeftRightConnectedConstraintSet(constraintLayout, component);
-        constraintSet.connect(component.getId(), ConstraintSet.TOP, topComponent.getId(), ConstraintSet.BOTTOM, 16);
-        return constraintSet;
-    }
-
-    private ConstraintSet getLeftRightConnectedConstraintSet(ConstraintLayout constraintLayout, View component) {
-        ConstraintSet constraintSet = new ConstraintSet();
-        constraintSet.clone(Objects.requireNonNull(constraintLayout));
-
-        constraintSet.connect(component.getId(), ConstraintSet.LEFT, constraintLayout.getId(), ConstraintSet.LEFT, 16);
-        constraintSet.connect(component.getId(), ConstraintSet.RIGHT, constraintLayout.getId(), ConstraintSet.RIGHT, 16);
-
-        return constraintSet;
-    }
-
-    private Button createButton(String text, View.OnClickListener clickEvent) {
-
-        //Create Button Dynamically
-        Button button = new Button(this);
-        button.setText(text);
-        button.setId(View.generateViewId());
-        //TODO : Sentence case for text
-
-        ConstraintLayout.LayoutParams layoutParams = new ConstraintLayout.LayoutParams(
-                ConstraintLayout.LayoutParams.MATCH_CONSTRAINT, DisplayHelper.dpToPixel(48, getApplicationContext()));
-        button.setLayoutParams(layoutParams);
-
-        button.setOnClickListener(clickEvent);
-        return button;
-    }
 }

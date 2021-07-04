@@ -1,6 +1,6 @@
 package ndk.utils_android19.activities;
 
-import android.content.Intent;
+import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.KeyEvent;
@@ -8,21 +8,19 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import java.util.Objects;
 
 import ndk.utils_android1.ActivityUtils1;
-import ndk.utils_android1.LogUtils1;
+import ndk.utils_android1.LogUtilsWrapper1;
+import ndk.utils_android14.ActivityWithContexts14;
 import ndk.utils_android19.R;
 
-public abstract class WebViewCoverActivity extends AppCompatActivity {
+public abstract class WebViewCoverActivity extends ActivityWithContexts14 {
 
     //TODO : Override Actionbar colors
     //TODO : Splash Screen
 
     WebView webView;
-    AppCompatActivity currentActivity = this;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +28,7 @@ public abstract class WebViewCoverActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_webview);
 
-        webView = findViewById(R.id.webview);
+        webView = findViewById(R.id.webView);
         webView.loadUrl("https://www." + configureCover() + ".in");
 
         WebSettings webSettings = webView.getSettings();
@@ -44,7 +42,7 @@ public abstract class WebViewCoverActivity extends AppCompatActivity {
 
             webSettings.setUserAgentString(configureUserAgent());
         }
-        webView.setWebViewClient(new AmazonWebViewClient());
+        webView.setWebViewClient(new CoverWebViewClient());
     }
 
     public abstract String configureUserAgent();
@@ -79,20 +77,33 @@ public abstract class WebViewCoverActivity extends AppCompatActivity {
 
     public abstract boolean isAnotherHostCheckEnabled();
 
-    void gotoMaskedActivity() {
 
-        ActivityUtils1.startActivityForClass(currentActivity, configureNextActivity());
-    }
+    class CoverWebViewClient extends WebViewClient {
 
-    class AmazonWebViewClient extends WebViewClient {
+        class LogUtils extends LogUtilsWrapper1 {
+
+            @Override
+            public String configureApplicationTag() {
+
+                return configureApplicationName();
+            }
+
+            @Override
+            public Context configureCurrentApplicationContext() {
+
+                return currentApplicationContext;
+            }
+        }
+
+        LogUtils logUtils = new LogUtils();
 
         @Override
         public boolean shouldOverrideUrlLoading(WebView view, String url) {
 
-            LogUtils1.debug(this.getClass().getSimpleName(), "URL : " + url);
+            logUtils.debug("URL : " + url);
 
             String tempHost = Uri.parse(url).getHost();
-            LogUtils1.debug(this.getClass().getSimpleName(), "URL Host : " + tempHost);
+            logUtils.debug("URL Host : " + tempHost);
 
             if (isAnotherHostCheckEnabled() && Objects.equals(tempHost, configureAnotherHostPointer()) && isAnotherHostLinkCheckEnabled() && url.contains(configureAnotherHostLinkPointer())) {
 
@@ -116,10 +127,16 @@ public abstract class WebViewCoverActivity extends AppCompatActivity {
             } else {
 
                 // Otherwise, the link is not for a page on my site, so launch another Activity that handles URLs
-                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
-                startActivity(intent);
+                ActivityUtils1.startActivityForUrl(currentActivityContext, url);
                 return true;
             }
         }
+
+        void gotoMaskedActivity() {
+
+            ActivityUtils1.startActivityForClass(currentActivityContext, configureNextActivity());
+        }
     }
+
+    public abstract String configureApplicationName();
 }
