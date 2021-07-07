@@ -10,7 +10,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import ndk.utils_android1.ErrorUtils;
-import ndk.utils_android16.SnackbarUtils;
+import ndk.utils_android16.SnackbarUtils16;
 
 public class LocationUtils {
 
@@ -64,7 +64,7 @@ public class LocationUtils {
         try {
             gps_enabled = lm.isProviderEnabled(LocationManager.GPS_PROVIDER);
             if (!gps_enabled) {
-                SnackbarUtils.displayShortNoFabErrorBottomSnackBar(context, "Please Enable GPS for better doctor search results.");
+                SnackbarUtils16.displayShortNoFabErrorBottomSnackBar(context, "Please Enable GPS for better doctor search results.");
                 return false;
             }
         } catch (Exception ex) {
@@ -75,7 +75,7 @@ public class LocationUtils {
         try {
             network_enabled = lm.isProviderEnabled(LocationManager.NETWORK_PROVIDER);
             if (!network_enabled) {
-                SnackbarUtils.displayShortNoFabErrorBottomSnackBar(context, "Please Enable Mobile Data.");
+                SnackbarUtils16.displayShortNoFabErrorBottomSnackBar(context, "Please Enable Mobile Data.");
                 return false;
             }
         } catch (Exception ex) {
